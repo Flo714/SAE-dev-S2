@@ -21,7 +21,7 @@ Ce modèle de mentions légales est proposé par le générateur gratuit de ment
     <h2 class="my-6">3. Description des services fournis</h2>
 
     <p class="my-2">Le site internet https://tradi-val.fr a pour objet de fournir une information concernant l’ensemble des activités de la société. https://tradi-val.fr s’efforce de fournir sur le site https://tradi-val.fr des informations aussi précises que possible. Toutefois, il ne pourra être tenu responsable des oublis, des inexactitudes et des carences dans la mise à jour, qu’elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations.</p>
-    <p class="my-2 pb-6">Toutes les informations indiquées sur le site https://tradi-val.fr sont données à titre indicatif, et sont susceptibles d’évoluer. Par ailleurs, les renseignements figurant sur le site https://tradi-val.fr ne sont pas exhaustifs. Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne</p>
+    <p class="py-2 pb-6">Toutes les informations indiquées sur le site https://tradi-val.fr sont données à titre indicatif, et sont susceptibles d’évoluer. Par ailleurs, les renseignements figurant sur le site https://tradi-val.fr ne sont pas exhaustifs. Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne</p>
 
 </template>
 
