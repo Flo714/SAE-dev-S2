@@ -5,6 +5,7 @@ import ArtistesView from '../views/ArtistesView.vue'
 import FestivalView from '../views/FestivalView.vue'
 import ContactView from '../views/ContactView.vue'
 import ConcertView from '../views/ConcertView.vue'
+import MentionlegalView from '../views/MentionlegalView.vue'
 
 
 
@@ -17,7 +18,7 @@ const router = createRouter({
     { path: '/Festival', name: 'FestivalView', component: FestivalView },
     { path: '/Contact', name: 'ContactView', component: ContactView },
     { path: '/Concert', name: 'ConcertView', component: ConcertView },
-
+    { path: '/MentionLegal', name: 'MentionLegalView', component: MentionlegalView },
     // ici les autres routes
   ]
 })

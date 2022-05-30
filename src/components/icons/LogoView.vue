@@ -1,12 +1,11 @@
 <template>
-<div class="w-[87px] h-[89.56px]">
   <svg
-    width="63"
-    height="73"
+    width="32"
+    height="45"
     viewBox="0 0 63 73"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    class="w-[61.66px] h-[72.93px]"
+    class="w-[52px] h-[65px]"
     preserveAspectRatio="none"
   >
     <path
@@ -14,8 +13,4 @@
       fill="#FBBF24"
     ></path>
   </svg>
-  <p class="absolute left-0 top-[71.56px] text-[15px] font-bold text-left text-amber-400">
-    TRADI’VAL
-  </p>
-</div>
 </template>

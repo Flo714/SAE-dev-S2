@@ -6,10 +6,12 @@ module.exports = {
   theme: {
     extend: {
       "colors": {
-
+        "marron": "#B45309",
+        "jaune": "#FBBF24"
       },
       "fontFamily": {
-        "inter": "Inter, system-ui, sans-serif"
+        "gabo-drive": "Gabo Drive",
+        "roboto": "Roboto"
       },
 
 
