@@ -12,7 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <Menu class="m-3 mt-4 justify-end" />
     </div>
   </header>
-  <main>
+  <main class="bg-fond px-4">
     <Router-View />
   </main>
   <footer class="bg-marron p-4">
