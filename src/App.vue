@@ -19,11 +19,11 @@ import { RouterLink, RouterView } from 'vue-router'
     <div>
       <h4>Liens</h4>
       <div>
-        <p>Programmation</p>
-        <p>Les artistes</p>
-        <p>Le festival</p>
-        <p>Les concerts</p>
-        <p>Nous contacter</p>
+        <RouterLink to="/Programme">Programmation</RouterLink>
+        <RouterLink to="/">Les artistes</RouterLink>
+        <RouterLink to="/">Le festival</RouterLink>
+        <RouterLink to="/">Les concerts</RouterLink>
+        <RouterLink to="/"> contacter</RouterLink>
       </div>
     </div>
     <div>
