@@ -1,35 +1,36 @@
 <template>
-    <h1>Nous contacter </h1>
-    <p>Vous pouvez nous contacter en remplissant le formulaire ci-dessous.</p>
-    <section>
-        <div>
-            <label class="flex flex-col">
-                <span>Nom :  </span>
-                <input type="text" class="" placeholder="Votre nom">
+    <h1 class="py-8">Nous contacter </h1>
+    <p class="my-4">Vous pouvez nous contacter en remplissant le formulaire ci-dessous.</p>
+    <section class="pb-6">
+        <div class="bg-marron p-2 rounded-xl">
+            <label class="flex flex-col mb-3">
+                <span class="font-semibold my-1">Nom :  </span>
+                <input type="text" class="bg-jaune rounded-xl border-none" placeholder="Votre nom">
             </label>
-            <label class="flex flex-col">
-                <span>Prénom :  </span>
-                <input type="text" class="" placeholder="Votre prénom">
+            <label class="flex flex-col mb-3">
+                <span class="font-semibold my-1">Prénom :  </span>
+                <input type="text" class="bg-jaune rounded-xl border-none" placeholder="Votre prénom">
             </label>
-            <label class="flex flex-col">
-                <span>Mail :  </span>
-                <input type="email" class="" placeholder="john@exemple.com">
+            <label class="flex flex-col mb-3">
+                <span class="font-semibold my-1">Mail :  </span>
+                <input type="email" class="bg-jaune rounded-xl border-none" placeholder="john@exemple.com">
             </label>
-            <label class="flex flex-col">
-                <span>Message :</span>
-                <textarea class="" rows="3" ></textarea>
+            <label class="flex flex-col mb-3">
+                <span class="font-semibold my-1">Message :</span>
+                <textarea class="bg-jaune rounded-xl border-none" placeholder="Votre message" rows="3" ></textarea>
             </label>
-            <!-- Bouton Envoyer -->
-            <button></button>
+            <div class="flex justify-end mt-8 mb-2 mr-4">
+                <Bouton2 Nom="Envoyer"/>
+            </div>
         </div>
     </section>
 </template>
 
 <script>
-// import  from ""
+import Bouton2 from "../../src/components/Bouton2View.vue"
 
 export default {
   name: "App",
-  components: {  },
+  components: { Bouton2 },
 };
 </script>
