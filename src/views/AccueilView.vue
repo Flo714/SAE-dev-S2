@@ -12,13 +12,13 @@
         
         <p class="my-4">Au Tradi’Val, nous saurons vous accueillir avec des chansons traditionnelles, des décors renversants et des magnifiques chanteurs.</p>
         <div class="flex justify-end ml-6 my-8">
-            <Bouton class="" Nom="Voir les chanteurs"/>
+            <RouterLink to="/Artistes"><Bouton class="" Nom="Voir les chanteurs"/></RouterLink>
         </div>
     </section>
     <section>
         <h2>Programme</h2>
         <div class="flex justify-end mr-6 my-6">
-            <Bouton Nom="Voir le Programme en entier"/>
+            <RouterLink to="/Programme"><Bouton Nom="Voir le Programme en entier"/></RouterLink>
         </div>
        
     </section>
