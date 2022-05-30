@@ -20,10 +20,10 @@ import { RouterLink, RouterView } from 'vue-router'
       <h4>Liens</h4>
       <div>
         <RouterLink to="/Programme">Programmation</RouterLink>
-        <RouterLink to="/">Les artistes</RouterLink>
-        <RouterLink to="/">Le festival</RouterLink>
+        <RouterLink to="/Artistes">Les artistes</RouterLink>
+        <RouterLink to="/Festival">Le festival</RouterLink>
         <RouterLink to="/">Les concerts</RouterLink>
-        <RouterLink to="/"> contacter</RouterLink>
+        <RouterLink to="/Contact">Nous contacter</RouterLink>
       </div>
     </div>
     <div>
