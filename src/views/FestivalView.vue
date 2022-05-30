@@ -23,7 +23,7 @@
 
         <p class="font-semibold">Germagny :</p>
 
-        <img class="w-[75%] block m-auto rounded-xl my-4" src="../../public/img-squirrel/Carte Germagny.webp" alt="Carte de Germagny">
+        <img class="w-[90%] block m-auto rounded-xl my-4" src="../../public/img-squirrel/Carte Germagny.webp" alt="Carte de Germagny">
 
         <p class="my-6">Le Tradi’Val se déroule au niveau du lavoir de Germagny au bord de la rivière de la Guye. Pour vous garer, vous pouvez utiliser le pré mis à disposition.</p>
     </section>

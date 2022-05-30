@@ -11,7 +11,7 @@
         <h2 class="mr-4">Le Tradi'Val vous accueille les 5, 6 et 7 Août à Germagny !</h2>
         
         <p class="my-4">Au Tradi’Val, nous saurons vous accueillir avec des chansons traditionnelles, des décors renversants et des magnifiques chanteurs.</p>
-        <div class="flex justify-end ml-10 my-8">
+        <div class="flex justify-end ml-6 my-8">
             <Bouton class="" Nom="Voir les chanteurs"/>
         </div>
     </section>
