@@ -21,7 +21,6 @@
             <Bouton Nom="Voir le Programme en entier"/>
         </div>
        
-        <button></button>
     </section>
     <section>
         <h2>Les artistes</h2>

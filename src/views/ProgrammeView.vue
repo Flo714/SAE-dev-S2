@@ -1,20 +1,18 @@
 <template>
-    <h1>La Programmation</h1>
+    <h1 class="py-4">La Programmation</h1>
 
-    <section>
-        <div></div>
-        <h2>Vendredi 7 Août 2022</h2>
+    <section class="my-8">
+        <h2 class="my-4 before:bg-jaune before:absolute before:w-8 before:h-3 before:rounded"><span class="relative ml-2">Vendredi 7 Août 2022</span></h2>
         <ul>
             <li>18H00 - Ouverture </li>
             <li>19H00 - Concert d’Annabelle Rogelet </li>
             <li>21H00 - Concert du groupe : Les Mauvaises Herbes</li>
             <li>00H00 - Fin du 1er Jour</li>
         </ul>
-    </section>>
-    <section>
-        <div></div>
-        <h2>Samedi 8 Août 2022</h2>
-        <ul>
+    </section>
+    <section class="my-8">
+        <h2 class="my-4 before:bg-jaune before:absolute before:w-8 before:h-3 before:rounded"><span class="relative ml-2">Samedi 8 Août 2022</span></h2>
+        <ul class="list-none">
             <li>10H00 - Ouverture du festival</li>
             <li>11H00 - Concert du groupe : Les Oiseaux de Passage</li>
             <li>13H00 - Pause déjeuner</li>
@@ -24,10 +22,9 @@
             <li>21H00 - Soirée festive</li>
             <li>00H00 - Fin du 2eme Jour</li>
         </ul>
-    </section>>
-    <section>
-        <div></div>
-        <h2>Dimanche 9 Août 2022</h2>
+    </section>
+    <section class="mt-8 pb-8">
+        <h2 class="my-4 before:bg-jaune before:absolute before:w-8 before:h-3 before:rounded"><span class="relative ml-2">Dimanche 9 Août 2022</span></h2>
         <ul>
             <li>10H00 - Ouverture du festival</li>
             <li>11H00 - Concert du Groupe : Crystal Duet</li>
@@ -38,7 +35,7 @@
             <li>21H00 - Concert d’Annabelle Rogelet </li>
             <li>00H00 - Fin du Festival</li>
         </ul>
-    </section>>
+    </section>
 </template>
 
 <script>
