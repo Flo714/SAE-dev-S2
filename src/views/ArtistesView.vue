@@ -15,7 +15,7 @@
                 Role="Jazz, Chanson classique"
                 Bio="S’adapte à tout style de musique"
                 Jour="Vendredi"
-                Image="/public/img-squirrel/Les_oiseaux_de_passage.webp"/>
+                Image="/public/img-squirrel/Les-Mauvaises-Herbes.webp"/>
         </div>
         <div>
             <Card
@@ -31,7 +31,7 @@
                 Role="Pop, Jazz ..."
                 Bio="Reprises de chansons de Georges Brassens"
                 Jour="Samedi"
-                Image="/public/img-squirrel/Les_oiseaux_de_passage.webp"/>
+                Image="/public/img-squirrel/Les_oiseaux_de_Passage.webp"/>
         </div>
         <div>
             <Card
@@ -39,7 +39,7 @@
                 Role="Jazz"
                 Bio="Orchestre forains"
                 Jour="Samedi et Dimanche"
-                Image="/public/img-squirrel/Les_oiseaux_de_passage.webp"/>
+                Image="/public/img-squirrel/L_otite-Orphéonique-_1_.webp"/>
         </div>
         <div>
             <Card
@@ -47,7 +47,7 @@
                 Role="Contre-ténor"
                 Bio="Groupe qui fait traverser le temps"
                 Jour="Dimanche"
-                Image="/public/img-squirrel/Les_oiseaux_de_passage.webp"/>
+                Image="/public/img-squirrel/Crystal-Duet.webp"/>
         </div>
     </div>
 </template>
