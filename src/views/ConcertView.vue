@@ -6,8 +6,8 @@
       <RouterLink to="/Programme"><Bouton Nom="Consulter le programme"/></RouterLink>
     </div>
 
-    <img class="w-[70%] rounded-lg lg:max-w-[600px]" src="../../public/img-squirrel/img-groupe.webp" alt="Image d'un groupe">
-    <p class="ml-8 mr-4 my-3 responsivetext">Venez assister aux concerts pour une fête conviviale et familiale. Il se déroule tous les jours pour une durée d’environ 2 à 3 heures</p>
+    <img class="w-[70%] rounded-lg lg:max-w-[600px] xl:ml-12" src="../../public/img-squirrel/img-groupe.webp" alt="Image d'un groupe">
+    <p class="ml-8 mr-4 my-3 responsivetext xl:ml-20 xl:mr-32 xl:my-5">Venez assister aux concerts pour une fête conviviale et familiale. Il se déroule tous les jours pour une durée d’environ 2 à 3 heures</p>
 
     <section>
         <h2 class="my-6 md:text-2xl">Accéder aux concerts</h2>

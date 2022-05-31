@@ -21,7 +21,7 @@
     <section>
         <h2 class="my-4 md:text-2xl lg:text-3xl">Comment accéder au  Festival ?</h2>
 
-        <p class="font-semibold md:text-lg">Germagny :</p>
+        <p class="font-semibold md:text-lg xl:ml-64 xl:mt-8">Germagny :</p>
 
         <img class="w-[90%] block m-auto rounded-xl my-4 md:max-w-[600px]" src="../../public/img-squirrel/Carte Germagny.webp" alt="Carte de Germagny">
 
