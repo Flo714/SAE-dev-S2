@@ -8,17 +8,17 @@ import { RouterLink, RouterView } from 'vue-router'
       <RouterLink to="/"><Logo class="ml-2"/>
       <span class="sr-only">Site Du Tradi'Val</span></RouterLink>
 
-      <p class="text-jaune text-4xl font-bold mt-8 md:text-5xl">Tradi'Val</p>
+      <p class="text-jaune text-4xl font-bold mt-8 md:text-5xl lg:hidden">Tradi'Val</p>
 
 
       <!-- Menu -->
-      <button class="text-xl relative" aria-haspopup="true"
+      <button class="text-xl relative lg:hidden" aria-haspopup="true"
         aria-controls="menu" 
         :aria-expanded="menuOuvert" @click="menuOuvert = !menuOuvert">
         <Menu class="m-3 mt-4 justify-end"/>
         <span class="sr-only">Menu</span>
       </button>
-      <div id="menu" class="fixed inset-0 z-20 translate-x-full bg-marron motion-safe:duration-1000 motion-safe:transition-transform" 
+      <div id="menu" class="fixed inset-0 z-20 translate-x-full lg:hidden bg-marron motion-safe:duration-1000 motion-safe:transition-transform" 
         :class="{ 'translate-x-0': menuOuvert }">
         <button class="text-xl absolute top-2 right-3" aria-haspopup="true"
           aria-controls="menu"
@@ -33,6 +33,13 @@ import { RouterLink, RouterView } from 'vue-router'
           <li><RouterLink class="text-3xl" to="/Contact">Nous contacter</RouterLink></li>
           <li><RouterLink class="text-3xl" to="/Concert">Le concert</RouterLink></li>
         </ul>
+      </div>
+      <div class="hidden lg:flex lg:text-jaune lg:gap-8 lg:mr-7 lg:mt-4">
+        <RouterLink to="/"><p class="text-lg font-semibold">Programmation</p></RouterLink>
+        <RouterLink to="/Festival"><p class="text-lg font-semibold">Le festival</p></RouterLink>
+        <RouterLink to="/Concert"><p class="text-lg font-semibold">Les concerts</p></RouterLink>
+        <RouterLink to="/Artistes"><p class="text-lg font-semibold">Les artistes</p></RouterLink>
+        <RouterLink to="/Contact"><p class="text-lg font-semibold">Nous contacter</p></RouterLink>
       </div>
     </div>
     <a href="#content" class="sr-only focus:not-sr-only"> Passez au contenu </a>
