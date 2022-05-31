@@ -74,9 +74,9 @@ import { RouterLink, RouterView } from 'vue-router'
       <div class="mb-4 w-1/2 sm:w-4/12 md:w-3/12">
         <h4 class="my-6">Suivez nous</h4>
         <div class="flex gap-4">
-          <Facebook/>
-          <Instagram/>
-          <Twitter/>
+          <a href="https://fr-fr.facebook.com/"><Facebook><span class="sr-only">Lien vers Facebook</span></Facebook></a>
+          <a href="https://www.instagram.com/"><Instagram><span class="sr-only">Lien vers Instagram</span></Instagram></a>
+          <a href="https://twitter.com/?lang=fr"><Twitter><span class="sr-only">Lien vers Twitter</span></Twitter></a>
         </div>
       </div>
     </div>
