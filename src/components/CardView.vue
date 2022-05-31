@@ -5,7 +5,7 @@
         <div class="mx-4">
             <h3 class="text-base">{{ Nom }}</h3>
             <p class="text-xs ml-2">{{ Role }}</p>
-            <p class="text-sm mt-4">{{ Bio }}</p>
+            <p class="text-sm mt-4 md:text-lg lg:text-xl">{{ Bio }}</p>
         </div>
     </div>
     <div>
