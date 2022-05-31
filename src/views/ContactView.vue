@@ -1,7 +1,7 @@
 <template>
-    <h1 class="py-8 md:text-4xl md:pt-8">Nous contacter </h1>
+    <h1 class="py-8 md:text-4xl md:pt-8 lg:text-5xl">Nous contacter </h1>
     <p class="mb-4 responsivetext">Vous pouvez nous contacter en remplissant le formulaire ci-dessous.</p>
-    <section class="pb-6 mx-2 md:max-w-[70%] md:m-auto">
+    <section class="pb-6 mx-2 md:max-w-[70%] md:m-auto lg:max-w-[50%] lg:pb-14">
         <div class="bg-marron p-2 rounded-xl">
             <label class="flex flex-col mb-3">
                 <span class="font-semibold my-1">Nom :  </span>
