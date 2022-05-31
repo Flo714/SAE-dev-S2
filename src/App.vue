@@ -35,7 +35,7 @@ import { RouterLink, RouterView } from 'vue-router'
         </ul>
       </div>
       <div class="hidden lg:flex lg:text-jaune lg:gap-8 lg:mr-7 lg:mt-4">
-        <RouterLink to="/"><p class="text-lg font-semibold">Programmation</p></RouterLink>
+        <RouterLink to="/Programme"><p class="text-lg font-semibold">Programmation</p></RouterLink>
         <RouterLink to="/Festival"><p class="text-lg font-semibold">Le festival</p></RouterLink>
         <RouterLink to="/Concert"><p class="text-lg font-semibold">Les concerts</p></RouterLink>
         <RouterLink to="/Artistes"><p class="text-lg font-semibold">Les artistes</p></RouterLink>
@@ -47,8 +47,8 @@ import { RouterLink, RouterView } from 'vue-router'
   <main id="content" class="bg-fond px-4">
     <Router-View />
   </main>
-  <footer class="bg-marron p-4">
-    <div class="max-w-6xl m-auto text-gray-900 flex flex-wrap justify-left text-lg">
+  <footer class="bg-marron p-6">
+    <div class="max-w-6xl m-auto text-gray-900 flex flex-wrap justify-left text-lg my-6">
       <div class="w-1/2 sm:w-4/12 md:w-3/12">
         <h4 class="my-6">Liens</h4>
         <ul>

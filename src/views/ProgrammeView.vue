@@ -1,7 +1,7 @@
 <template>
     <h1 class="py-4 md:text-4xl md:pt-12">La Programmation</h1>
 
-    <section class="my-8">
+    <section class="my-8 lg:ml-10">
         <h2 class="my-4 before:bg-jaune before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Vendredi 7 Août 2022</span></h2>
         <ul class="mx-6">
             <li class="responsivetext">18H00 - Ouverture </li>
@@ -10,7 +10,7 @@
             <li class="responsivetext">00H00 - Fin du 1er Jour</li>
         </ul>
     </section>
-    <section class="my-8">
+    <section class="my-8 lg:ml-10">
         <h2 class="my-4 before:bg-jaune before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Samedi 8 Août 2022</span></h2>
         <ul class="mx-6">
             <li class="responsivetext">10H00 - Ouverture du festival</li>
@@ -23,7 +23,7 @@
             <li class="responsivetext">00H00 - Fin du 2eme Jour</li>
         </ul>
     </section>
-    <section class="mt-8 pb-8">
+    <section class="mt-8 pb-8 lg:ml-10">
         <h2 class="my-4 before:bg-jaune before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Dimanche 9 Août 2022</span></h2>
         <ul class="mx-6">
             <li class="responsivetext">10H00 - Ouverture du festival</li>
