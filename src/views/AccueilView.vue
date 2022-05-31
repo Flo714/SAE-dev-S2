@@ -35,7 +35,7 @@
         <h2 class="md:text-2xl lg:text-3xl">Les artistes</h2>
         <p class="my-4 mr-10 responsivetext">Voici quelques artistes qui seront présents lors du Tradi’Val</p>
         <div class="grid grid-flow-row-dense grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-8 py-10">
-            <div  class="my-2">
+            <div>
                 <Card class=""
                     Nom="Annabelle Rogelet"
                     Role="Violoncelliste"

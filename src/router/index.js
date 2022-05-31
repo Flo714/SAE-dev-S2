@@ -20,6 +20,7 @@ const router = createRouter({
     { path: '/Contact', name: 'ContactView', component: ContactView },
     { path: '/Concert', name: 'ConcertView', component: ConcertView },
     { path: '/MentionLegal', name: 'MentionLegalView', component: MentionlegalView },
+    { path: '/style-guide', name: 'styleguideView', component: styleguideView },
     // ici les autres routes
   ]
 })
