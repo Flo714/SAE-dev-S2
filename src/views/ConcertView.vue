@@ -12,7 +12,7 @@
     <section>
         <h2 class="my-6 md:text-2xl">Accéder aux concerts</h2>
 
-        <img class="w-[70%] block m-auto rounded-xl my-4 lg:max-w-[600px]" src="../../public/img-squirrel/Carte Germagny.webp" alt="Carte de Germagny">
+        <img class="w-[70%] block m-auto rounded-xl my-4 lg:max-w-[600px]" src="../../public/img-squirrel/Carte_Germagny.webp" alt="Carte de Germagny">
 
         <p class="pt-4 pb-8 responsivetext mx-20">Les concerts se déroule à l’interieur du festival. Vous pourrez donc y accéder par le parking</p>
     </section>
