@@ -5,14 +5,39 @@ import { RouterLink, RouterView } from 'vue-router'
 <template>
   <header>
     <div class="flex justify-between p-1 bg-marron">
-      <RouterLink to="/"><Logo class="ml-2"/></RouterLink>
+      <RouterLink to="/"><Logo class="ml-2"/>
+      <span class="sr-only">Site Du Tradi'Val</span></RouterLink>
 
       <p class="text-jaune text-4xl font-bold mt-8">Tradi'Val</p>
 
-      <Menu class="m-3 mt-4 justify-end" />
+
+      <!-- Menu -->
+      <button class="text-xl relative" aria-haspopup="true"
+        aria-controls="menu" 
+        :aria-expanded="menuOuvert" @click="menuOuvert = !menuOuvert">
+        <Menu class="m-3 mt-4 justify-end"/>
+        <span class="sr-only">Menu</span>
+      </button>
+      <div id="menu" class="fixed inset-0 z-20 translate-x-full bg-marron motion-safe:duration-1000 motion-safe:transition-transform" 
+        :class="{ 'translate-x-0': menuOuvert }">
+        <button class="text-xl absolute top-2 right-3" aria-haspopup="true"
+          aria-controls="menu"
+          :aria-expanded="menuOuvert" @click="menuOuvert = !menuOuvert">
+          <Croix class="m-3 mt-4 justify-end"/>
+          <span class="sr-only">Fermer le menu</span>
+        </button>
+        <ul class="text-jaune font-bold text-center flex flex-col gap-12 mt-28">
+          <li><RouterLink class="text-3xl" to="/Programme">Programmation</RouterLink></li>
+          <li><RouterLink class="text-3xl" to="/Artistes">Les artistes</RouterLink></li>
+          <li><RouterLink class="text-3xl" to="/Festival">Le festival</RouterLink></li>
+          <li><RouterLink class="text-3xl" to="/Contact">Nous contacter</RouterLink></li>
+          <li><RouterLink class="text-3xl" to="/Concert">Le concert</RouterLink></li>
+        </ul>
+      </div>
     </div>
+    <a href="#content" class="sr-only focus:not-sr-only"> Passez au contenu </a>
   </header>
-  <main class="bg-fond px-4">
+  <main id="content" class="bg-fond px-4">
     <Router-View />
   </main>
   <footer class="bg-marron p-4">
@@ -55,10 +80,18 @@ import Logo from "../src/components/icons/LogoView.vue"
 import Facebook from "../src/components/icons/FacebookView.vue"
 import Instagram from "../src/components/icons/InstagramView.vue"
 import Twitter from "../src/components/icons/TwitterView.vue"
-
+import Croix from "../src/components/icons/CroixView.vue"
 
 export default {
   name: "App",
-  components: { Menu, Logo, Facebook, Instagram, Twitter },
+    data() {
+    return {
+      menuOuvert: false,
+      };
+    },
+    beforeMount() {
+      this.$router.afterEach(() => (this.menuOuvert = false));
+    },
+  components: { Menu, Logo, Facebook, Instagram, Twitter, Croix },
 };
 </script>

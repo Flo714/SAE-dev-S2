@@ -6,7 +6,7 @@
 
         <p class="ml-20 my-4">Le Tradi’Val est un festival de chansons traditionnelles qui se déroule à Germagny, en Saône et Loire. Venez nous rejoindre le 5, 6 et 7 Août 2022</p>
     </section>
-    <Formeaccueil class="my-10"/>
+        <Formeaccueil class="my-10 z-1"/>
     <section>
         <h2 class="mr-4">Le Tradi'Val vous accueille les 5, 6 et 7 Août à Germagny !</h2>
         
@@ -62,8 +62,9 @@ import Formeaccueil from "../../src/components/formeaccueilView.vue"
 import Bouton from "../../src/components/BoutonView.vue"
 import Card from "../../src/components/CardView.vue"
 
+
 export default {
   name: "App",
-  components: { Forme, Formeaccueil, Bouton, Card },
+  components: { Forme, Formeaccueil, Bouton, Card, },
 };
 </script>
