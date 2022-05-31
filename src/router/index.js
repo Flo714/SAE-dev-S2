@@ -7,6 +7,7 @@ import ContactView from '../views/ContactView.vue'
 import ConcertView from '../views/ConcertView.vue'
 import MentionlegalView from '../views/MentionlegalView.vue'
 import styleguideView from '../views/styleguideView.vue'
+import Page404View from '../views/404View.vue'
 
 
 
@@ -21,6 +22,7 @@ const router = createRouter({
     { path: '/Concert', name: 'ConcertView', component: ConcertView },
     { path: '/MentionLegal', name: 'MentionLegalView', component: MentionlegalView },
     { path: '/style-guide', name: 'styleguideView', component: styleguideView },
+    { path: '/404', name: 'Page404View', component: Page404View },
     // ici les autres routes
   ]
 })
