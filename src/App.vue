@@ -44,7 +44,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
     <a href="#content" class="sr-only focus:not-sr-only"> Passez au contenu </a>
   </header>
-  <main id="content" class="bg-fond px-4">
+  <main id="content" class="bg-fond px-4 xl:px-8">
     <Router-View />
   </main>
   <footer class="bg-marron p-6">

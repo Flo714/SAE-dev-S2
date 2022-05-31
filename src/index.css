@@ -33,6 +33,6 @@ li {
 
 @layer base {
     .responsivetext {
-        @apply md:text-lg lg:text-xl xl:text-2xl;
+        @apply md:text-lg lg:text-xl;
     }
 }
