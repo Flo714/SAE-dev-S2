@@ -4,13 +4,13 @@
 
         <img class="rounded-md ml-2 w-[70%]" src="../../public/img-squirrel/img-accueil.webp" alt="Image du Festival">
 
-        <p class="ml-20 my-4">Le Tradi’Val est un festival de chansons traditionnelles qui se déroule à Germagny, en Saône et Loire. Venez nous rejoindre le 5, 6 et 7 Août 2022</p>
+        <p class="ml-20 my-4 responsivetext md:ml-32 md:mt-8">Le Tradi’Val est un festival de chansons traditionnelles qui se déroule à Germagny, en Saône et Loire. Venez nous rejoindre le 5, 6 et 7 Août 2022</p>
     </section>
         <Formeaccueil class="my-10 z-1"/>
     <section>
         <h2 class="mr-4">Le Tradi'Val vous accueille les 5, 6 et 7 Août à Germagny !</h2>
         
-        <p class="my-4">Au Tradi’Val, nous saurons vous accueillir avec des chansons traditionnelles, des décors renversants et des magnifiques chanteurs.</p>
+        <p class="my-4 responsivetext">Au Tradi’Val, nous saurons vous accueillir avec des chansons traditionnelles, des décors renversants et des magnifiques chanteurs.</p>
         <div class="flex justify-end ml-6 my-8">
             <RouterLink to="/Artistes"><Bouton class="" Nom="Voir les chanteurs"/></RouterLink>
         </div>
@@ -24,7 +24,7 @@
     </section>
     <section>
         <h2>Les artistes</h2>
-        <p class="my-4 mr-10">Voici quelques artistes qui seront présents lors du Tradi’Val</p>
+        <p class="my-4 mr-10 responsivetext">Voici quelques artistes qui seront présents lors du Tradi’Val</p>
 
         <div  class="my-6">
             <Card

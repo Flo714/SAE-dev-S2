@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <RouterLink to="/"><Logo class="ml-2"/>
       <span class="sr-only">Site Du Tradi'Val</span></RouterLink>
 
-      <p class="text-jaune text-4xl font-bold mt-8">Tradi'Val</p>
+      <p class="text-jaune text-4xl font-bold mt-8 md:text-5xl">Tradi'Val</p>
 
 
       <!-- Menu -->
@@ -41,34 +41,36 @@ import { RouterLink, RouterView } from 'vue-router'
     <Router-View />
   </main>
   <footer class="bg-marron p-4">
-    <div>
-      <h4 class="my-6">Liens</h4>
-      <ul>
-        <RouterLink to="/Programme"><li class="text-jaune m-2 font-medium">Programmation</li></RouterLink>
-        <RouterLink to="/Artistes"><li class="text-jaune m-2 font-medium">Les artistes</li></RouterLink>
-        <RouterLink to="/Festival"><li class="text-jaune m-2 font-medium">Le festival</li></RouterLink>
-        <RouterLink to="/Concert"><li class="text-jaune m-2 font-medium">Les concerts</li></RouterLink>
-        <RouterLink to="/Contact"><li class="text-jaune m-2 font-medium">Nous contacter</li></RouterLink>
-      </ul>
-    </div>
-    <div>
-      <h4 class="my-6">Obtenir de l’aide</h4>
-      <div>
-        <a class="text-jaune m-2 font-medium" href="mailto:Tradi-val@gmail.com">Tradi-val@gmail.com</a>
+    <div class="max-w-6xl m-auto text-gray-900 flex flex-wrap justify-left text-lg">
+      <div class="w-1/2 sm:w-4/12 md:w-3/12">
+        <h4 class="my-6">Liens</h4>
+        <ul>
+          <RouterLink to="/Programme"><li class="text-jaune m-2 font-medium">Programmation</li></RouterLink>
+          <RouterLink to="/Artistes"><li class="text-jaune m-2 font-medium">Les artistes</li></RouterLink>
+          <RouterLink to="/Festival"><li class="text-jaune m-2 font-medium">Le festival</li></RouterLink>
+          <RouterLink to="/Concert"><li class="text-jaune m-2 font-medium">Les concerts</li></RouterLink>
+          <RouterLink to="/Contact"><li class="text-jaune m-2 font-medium">Nous contacter</li></RouterLink>
+        </ul>
       </div>
-    </div>
-    <div>
-      <h4 class="my-6">Informations</h4>
-      <div>
-        <RouterLink class="text-jaune m-2 font-medium" to="/Mentionlegal">Mentions Légales</RouterLink>
+      <div class="w-1/2 sm:w-4/12 md:w-3/12">
+        <h4 class="my-6">Obtenir de l’aide</h4>
+        <div>
+          <a class="text-jaune m-2 font-medium text-sm" href="mailto:Tradi-val@gmail.com">Tradi-val@gmail.com</a>
+        </div>
       </div>
-    </div>
-    <div class="mb-4">
-      <h4 class="my-6">Suivez nous</h4>
-      <div class="flex gap-4">
-        <Facebook/>
-        <Instagram/>
-        <Twitter/>
+      <div class="w-1/2 sm:w-4/12 md:w-3/12">
+        <h4 class="my-6">Informations</h4>
+        <div>
+          <RouterLink class="text-jaune m-2 font-medium text-sm" to="/Mentionlegal">Mentions Légales</RouterLink>
+        </div>
+      </div>
+      <div class="mb-4 w-1/2 sm:w-4/12 md:w-3/12">
+        <h4 class="my-6">Suivez nous</h4>
+        <div class="flex gap-4">
+          <Facebook/>
+          <Instagram/>
+          <Twitter/>
+        </div>
       </div>
     </div>
   </footer>
