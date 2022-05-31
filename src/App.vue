@@ -23,23 +23,23 @@ import { RouterLink, RouterView } from 'vue-router'
         <button class="text-xl absolute top-2 right-3" aria-haspopup="true"
           aria-controls="menu"
           :aria-expanded="menuOuvert" @click="menuOuvert = !menuOuvert">
-          <Croix class="m-3 mt-4 justify-end"/>
+          <Croix class="m-3 mt-4 justify-end hover:text-hover"/>
           <span class="sr-only">Fermer le menu</span>
         </button>
         <ul class="text-jaune font-bold text-center flex flex-col gap-12 mt-28">
-          <li><RouterLink class="text-3xl" to="/Programme">Programmation</RouterLink></li>
-          <li><RouterLink class="text-3xl" to="/Artistes">Les artistes</RouterLink></li>
-          <li><RouterLink class="text-3xl" to="/Festival">Le festival</RouterLink></li>
-          <li><RouterLink class="text-3xl" to="/Contact">Nous contacter</RouterLink></li>
-          <li><RouterLink class="text-3xl" to="/Concert">Le concert</RouterLink></li>
+          <li><RouterLink class="text-3xl hover:text-hover" to="/Programme">Programmation</RouterLink></li>
+          <li><RouterLink class="text-3xl hover:text-hover" to="/Artistes">Les artistes</RouterLink></li>
+          <li><RouterLink class="text-3xl hover:text-hover" to="/Festival">Le festival</RouterLink></li>
+          <li><RouterLink class="text-3xl hover:text-hover" to="/Contact">Nous contacter</RouterLink></li>
+          <li><RouterLink class="text-3xl hover:text-hover" to="/Concert">Le concert</RouterLink></li>
         </ul>
       </div>
       <div class="hidden lg:flex lg:text-jaune lg:gap-8 lg:mr-7 lg:mt-4">
-        <RouterLink to="/Programme"><p class="text-lg font-semibold">Programmation</p></RouterLink>
-        <RouterLink to="/Festival"><p class="text-lg font-semibold">Le festival</p></RouterLink>
-        <RouterLink to="/Concert"><p class="text-lg font-semibold">Les concerts</p></RouterLink>
-        <RouterLink to="/Artistes"><p class="text-lg font-semibold">Les artistes</p></RouterLink>
-        <RouterLink to="/Contact"><p class="text-lg font-semibold">Nous contacter</p></RouterLink>
+        <RouterLink to="/Programme"><p class="text-lg font-semibold hover:text-hover">Programmation</p></RouterLink>
+        <RouterLink to="/Festival"><p class="text-lg font-semibold hover:text-hover">Le festival</p></RouterLink>
+        <RouterLink to="/Concert"><p class="text-lg font-semibold hover:text-hover">Les concerts</p></RouterLink>
+        <RouterLink to="/Artistes"><p class="text-lg font-semibold hover:text-hover">Les artistes</p></RouterLink>
+        <RouterLink to="/Contact"><p class="text-lg font-semibold hover:text-hover">Nous contacter</p></RouterLink>
       </div>
     </div>
     <a href="#content" class="sr-only focus:not-sr-only"> Passez au contenu </a>
@@ -52,31 +52,31 @@ import { RouterLink, RouterView } from 'vue-router'
       <div class="w-1/2 sm:w-4/12 md:w-3/12">
         <h4 class="my-6">Liens</h4>
         <ul>
-          <RouterLink to="/Programme"><li class="text-jaune m-2 font-medium">Programmation</li></RouterLink>
-          <RouterLink to="/Artistes"><li class="text-jaune m-2 font-medium">Les artistes</li></RouterLink>
-          <RouterLink to="/Festival"><li class="text-jaune m-2 font-medium">Le festival</li></RouterLink>
-          <RouterLink to="/Concert"><li class="text-jaune m-2 font-medium">Les concerts</li></RouterLink>
-          <RouterLink to="/Contact"><li class="text-jaune m-2 font-medium">Nous contacter</li></RouterLink>
+          <RouterLink to="/Programme"><li class="text-jaune m-2 font-medium hover:text-hover">Programmation</li></RouterLink>
+          <RouterLink to="/Artistes"><li class="text-jaune m-2 font-medium hover:text-hover">Les artistes</li></RouterLink>
+          <RouterLink to="/Festival"><li class="text-jaune m-2 font-medium hover:text-hover">Le festival</li></RouterLink>
+          <RouterLink to="/Concert"><li class="text-jaune m-2 font-medium hover:text-hover">Les concerts</li></RouterLink>
+          <RouterLink to="/Contact"><li class="text-jaune m-2 font-medium hover:text-hover">Nous contacter</li></RouterLink>
         </ul>
       </div>
       <div class="w-1/2 sm:w-4/12 md:w-3/12">
         <h4 class="my-6">Obtenir de l’aide</h4>
         <div>
-          <a class="text-jaune m-2 font-medium text-sm" href="mailto:Tradi-val@gmail.com">Tradi-val@gmail.com</a>
+          <a class="text-jaune m-2 font-medium text-sm hover:text-hover" href="mailto:Tradi-val@gmail.com">Tradi-val@gmail.com</a>
         </div>
       </div>
       <div class="w-1/2 sm:w-4/12 md:w-3/12">
         <h4 class="my-6">Informations</h4>
         <div>
-          <RouterLink class="text-jaune m-2 font-medium text-sm" to="/Mentionlegal">Mentions Légales</RouterLink>
+          <RouterLink class="text-jaune m-2 font-medium text-sm hover:text-hover" to="/Mentionlegal">Mentions Légales</RouterLink>
         </div>
       </div>
       <div class="mb-4 w-1/2 sm:w-4/12 md:w-3/12">
         <h4 class="my-6">Suivez nous</h4>
         <div class="flex gap-4">
-          <a href="https://fr-fr.facebook.com/"><Facebook><span class="sr-only">Lien vers Facebook</span></Facebook></a>
-          <a href="https://www.instagram.com/"><Instagram><span class="sr-only">Lien vers Instagram</span></Instagram></a>
-          <a href="https://twitter.com/?lang=fr"><Twitter><span class="sr-only">Lien vers Twitter</span></Twitter></a>
+          <a href="https://fr-fr.facebook.com/"><Facebook class="hover:animate-[spin_1000ms_1] hover:bg-hover duration-700"><span class="sr-only">Lien vers Facebook</span></Facebook></a>
+          <a href="https://www.instagram.com/"><Instagram class="hover:animate-[spin_1000ms_1] hover:bg-hover duration-700"><span class="sr-only">Lien vers Instagram</span></Instagram></a>
+          <a href="https://twitter.com/?lang=fr"><Twitter class="hover:animate-[spin_1000ms_1] hover:bg-hover duration-700"><span class="sr-only">Lien vers Twitter</span></Twitter></a>
         </div>
       </div>
     </div>
