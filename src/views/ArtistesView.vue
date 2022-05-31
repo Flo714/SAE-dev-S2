@@ -1,5 +1,5 @@
 <template>
-    <h1 class="py-8 md:text-4xl md:pt-12">Les artistes</h1>
+    <h1 class="py-8 md:text-4xl md:pt-12 lg:text-5xl">Les artistes</h1>
     <div class="grid grid-flow-row-dense grid-cols-[repeat(auto-fit,minmax(300px,2fr))] gap-8 py-10">
         <div>
             <Card
