@@ -1,13 +1,13 @@
 <template>
     <h1 class="py-8 md:text-4xl md:pt-12 lg:text-5xl">Les artistes</h1>
-    <div class="grid grid-flow-row-dense grid-cols-[repeat(auto-fit,minmax(300px,2fr))] gap-8 py-10">
+    <div class="grid grid-flow-row-dense grid-cols-[repeat(auto-fit,minmax(350px,2fr))] gap-8 py-10">
         <div>
             <Card
                 Nom="Annabelle Rogelet"
                 Role="Violoncelliste"
                 Bio="Joue dans plusieurs groupes"
                 Jour="Samedi et Dimanche"
-                Image="/public/img-squirrel/Annabelle_Rogelet.webp"/>
+                Image="/img-squirrel/Annabelle_Rogelet.webp"/>
         </div>
         <div>
             <Card
@@ -15,7 +15,7 @@
                 Role="Jazz, Chanson classique"
                 Bio="S’adapte à tout style de musique"
                 Jour="Vendredi"
-                Image="/public/img-squirrel/Les-Mauvaises-Herbes.webp"/>
+                Image="/img-squirrel/Les-Mauvaises-Herbes.webp"/>
         </div>
         <div>
             <Card
@@ -23,7 +23,7 @@
                 Role="Bandonéoniste"
                 Bio="Nominé aux Victoires du Jazz"
                 Jour="Samedi et Dimanche"
-                Image="/public/img-squirrel/Louise_Jallu.webp"/>
+                Image="/img-squirrel/Louise_Jallu.webp"/>
         </div>
         <div>
             <Card
@@ -31,7 +31,7 @@
                 Role="Pop, Jazz ..."
                 Bio="Reprises de chansons de Georges Brassens"
                 Jour="Samedi"
-                Image="/public/img-squirrel/Les_oiseaux_de_Passage.webp"/>
+                Image="/img-squirrel/Les_oiseaux_de_Passage.webp"/>
         </div>
         <div>
             <Card
@@ -39,7 +39,7 @@
                 Role="Jazz"
                 Bio="Orchestre forains"
                 Jour="Samedi et Dimanche"
-                Image="/public/img-squirrel/L_otite-Orphéonique-_1_.webp"/>
+                Image="/img-squirrel/L_otite-Orphéonique-_1_.webp"/>
         </div>
         <div>
             <Card
@@ -47,7 +47,7 @@
                 Role="Contre-ténor"
                 Bio="Groupe qui fait traverser le temps"
                 Jour="Dimanche"
-                Image="/public/img-squirrel/Crystal-Duet.webp"/>
+                Image="/img-squirrel/Crystal-Duet.webp"/>
         </div>
     </div>
 </template>

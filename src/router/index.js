@@ -6,6 +6,7 @@ import FestivalView from '../views/FestivalView.vue'
 import ContactView from '../views/ContactView.vue'
 import ConcertView from '../views/ConcertView.vue'
 import MentionlegalView from '../views/MentionlegalView.vue'
+import styleguideView from '../views/styleguideView.vue'
 
 
 

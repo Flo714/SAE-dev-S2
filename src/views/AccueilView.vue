@@ -26,7 +26,7 @@
     </section>
     <section>
         <h2 class="md:text-2xl lg:text-3xl">Programme</h2>
-        <div class="flex justify-end mr-28 my-12">
+        <div class="flex justify-end mr-4 xl:mr-24 my-12">
             <RouterLink to="/Programme"><Bouton Nom="Voir le Programme en entier"/></RouterLink>
         </div>
        
@@ -41,7 +41,7 @@
                     Role="Violoncelliste"
                     Bio="Joue dans plusieurs groupes"
                     Jour="Samedi et dimanche"
-                    Image="/public/img-squirrel/Annabelle_Rogelet.webp"/>
+                    Image="/img-squirrel/Annabelle_Rogelet.webp"/>
             </div>
             <div>
                 <Card
@@ -49,7 +49,7 @@
                     Role="Bandonéoniste"
                     Bio="Nominé aux Victoires du Jazz"
                     Jour="Samedi et dimanche"
-                    Image="/public/img-squirrel/Louise_Jallu.webp"/>
+                    Image="/img-squirrel/Louise_Jallu.webp"/>
             </div>
             <div>
                 <Card
@@ -57,7 +57,7 @@
                     Role="Pop, Jazz ..."
                     Bio="Reprises de chansons de Georges Brassens"
                     Jour="Samedi"
-                    Image="/public/img-squirrel/Les_oiseaux_de_passage.webp"/>
+                    Image="/img-squirrel/Les_oiseaux_de_passage.webp"/>
             </div>
         </div>
     </section>
