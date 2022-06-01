@@ -30,8 +30,8 @@
                                 <div class="">
                                   <span class="" >Filtrage</span>
                                 </div>
-                                <input type="text" class="" />
-                                <button class="" type="submit" title="Création">
+                                <input type="text" class="" v-model='filter'/>
+                                <button class="" type="button" title="Filtrage">
                                   <Search />
                                 </button>
                               </div>
@@ -40,7 +40,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for='Artistes in orderByName' :key='Artistes.id'>
+                    <tr v-for='Artistes in filterByName' :key='Artistes.id'>
                         <td>
                           <form>
                             <div class="">
@@ -63,54 +63,15 @@
         </div>
     </div>
     <div class="grid grid-flow-row-dense grid-cols-[repeat(auto-fit,minmax(350px,2fr))] gap-8 py-10">
-        <div>
+        <div v-for="artiste in listeArtistesSynchro" :key="artiste.id">
             <Card
-                Nom="Annabelle Rogelet"
-                Role="Violoncelliste"
-                Bio="Joue dans plusieurs groupes"
-                Jour="Samedi et Dimanche"
+                :Nom="artiste.Nom"
+                :Role="artiste.Role"
+                :Bio="artiste.Bio"
+                :Jour="artiste.Jour"
                 Image="/img-squirrel/Annabelle_Rogelet.webp"/>
         </div>
-        <div>
-            <Card
-                Nom="Les Mauvaises Herbes"
-                Role="Jazz, Chanson classique"
-                Bio="S’adapte à tout style de musique"
-                Jour="Vendredi"
-                Image="/img-squirrel/Les-Mauvaises-Herbes.webp"/>
-        </div>
-        <div>
-            <Card
-                Nom="Louise Jallu"
-                Role="Bandonéoniste"
-                Bio="Nominé aux Victoires du Jazz"
-                Jour="Samedi et Dimanche"
-                Image="/img-squirrel/Louise_Jallu.webp"/>
-        </div>
-        <div>
-            <Card
-                Nom="Les Oiseaux de Passage"
-                Role="Pop, Jazz ..."
-                Bio="Reprises de chansons de Georges Brassens"
-                Jour="Samedi"
-                Image="/img-squirrel/Les_oiseaux_de_Passage.webp"/>
-        </div>
-        <div>
-            <Card
-                Nom="L’Otite Orphéonique"
-                Role="Jazz"
-                Bio="Orchestre forains"
-                Jour="Samedi et Dimanche"
-                Image="/img-squirrel/L_otite-Orphéonique-_1_.webp"/>
-        </div>
-        <div>
-            <Card
-                Nom="Crystal Duet"
-                Role="Contre-ténor"
-                Bio="Groupe qui fait traverser le temps"
-                Jour="Dimanche"
-                Image="/img-squirrel/Crystal-Duet.webp"/>
-        </div>
+
     </div>
 </template>
 
@@ -138,7 +99,8 @@ export default {
     data(){ // Données de la vue
             return{                
                 nom:null, // Pour la création d'un nouveau pays
-                listeArtistesSynchro:[] // Liste des pays synchronisée - collection pays de Firebase
+                listeArtistesSynchro:[], // Liste des pays synchronisée - collection pays de Firebase
+                filter:''
             }
         },
         computed:{
@@ -148,6 +110,16 @@ export default {
                   if(a.Nom > b.Nom)  return 1;
                   return 0
                 })
+            },
+            filterByName:function(){
+                if(this.filter.length > 0){
+                    let filter = this.filter.toLowerCase();
+                    return this.orderByName.filter(function(Artistes){
+                        return Artistes.Nom.toLowerCase().includes(filter);
+                    })
+                }else{
+                    return this.orderByName;
+                }
             }
         },
         mounted(){ // Montage de la vue
