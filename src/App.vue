@@ -91,6 +91,7 @@ import Instagram from "../src/components/icons/InstagramView.vue"
 import Twitter from "../src/components/icons/TwitterView.vue"
 import Croix from "../src/components/icons/CroixView.vue"
 
+
 export default {
   name: "App",
     data() {
@@ -104,3 +105,4 @@ export default {
   components: { Menu, Logo, Facebook, Instagram, Twitter, Croix },
 };
 </script>
+
