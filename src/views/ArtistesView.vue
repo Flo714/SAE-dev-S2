@@ -151,7 +151,7 @@ export default {
                 // Les champs à mettre à jour
                 // Sauf le id qui est créé automatiquement
                 const docRef = await addDoc(dbArtistes,{
-                    Nom: this.Nom
+                    Nom: this.Nom,
                 })
                 console.log('document créé avec le id : ', docRef.id);
              },

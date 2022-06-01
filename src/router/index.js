@@ -8,6 +8,7 @@ import ConcertView from '../views/ConcertView.vue'
 import MentionlegalView from '../views/MentionlegalView.vue'
 import styleguideView from '../views/styleguideView.vue'
 import Page404View from '../views/404View.vue'
+import ModificationView from '../views/ModificationView.vue'
 
 
 
@@ -23,6 +24,7 @@ const router = createRouter({
     { path: '/MentionLegal', name: 'MentionLegalView', component: MentionlegalView },
     { path: '/style-guide', name: 'styleguideView', component: styleguideView },
     { path: '/:pathMatch(.*)*', name: 'Page404View', component: Page404View },
+    { path: '/Modification', name: 'ModificationView', component: ModificationView },
     // ici les autres routes
   ]
 })
