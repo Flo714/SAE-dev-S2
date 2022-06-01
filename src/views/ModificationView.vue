@@ -9,8 +9,8 @@
             </div>
             <div class="m-auto">
                 <label class="flex flex-col mb-3">
-                    <span class="font-semibold my-1">Nom :  </span>
-                    <input type="text" class="bg-jaune rounded-xl border-none w-80" placeholder="Nom">
+                    <span class="font-semibold my-1" >Nom :  </span>
+                    <input type="text" class="bg-jaune rounded-xl border-none w-80"><!--v-model="Artistes.Nom" -->
                 </label>
                 <label class="flex flex-col mb-3">
                     <span class="font-semibold my-1">Catégorie :  </span>
