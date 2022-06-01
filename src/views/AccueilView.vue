@@ -21,7 +21,7 @@
 
         <p class="my-4 responsivetext">Au Tradi’Val, nous saurons vous accueillir avec des chansons traditionnelles, des décors renversants et des magnifiques chanteurs.</p>
         <div class="flex justify-end ml-6 my-8 mr-16">
-            <RouterLink to="/Artistes"><Bouton class="" Nom="Voir les chanteurs"/></RouterLink>
+            <RouterLink to="/Artistes"><Bouton Nom="Voir les chanteurs"/></RouterLink>
         </div>
     </section>
     <section>

@@ -7,15 +7,19 @@
         </div>
 
         <p class="mt-4 text-center md:text-lg">La page que vous recherchez n'existe pas...</p>
-        <RouterLink to="/"><Bouton class="my-4" Nom="Accueil"/></RouterLink>
-        <p class="mb-8 text-center text-gray-500 md:text-lg">Vous cherchiez peut-être ?</p>
+        <RouterLink to="/"><Bouton class="my-8" Nom="Accueil"/></RouterLink>
+        <p class="mb-8 text-center">Vous cherchiez peut-être ?</p>
 
-        <div class="grid justify-between grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
-            <div><RouterLink to="/Programme"><Bouton class="my-4" Nom="Voir le programme"/></RouterLink></div>
-            <div><RouterLink to="/Artistes"><Bouton class="my-4" Nom="Les artistes"/></RouterLink></div>
-            <div><RouterLink to="/Festival"><Bouton class="my-4" Nom="Le festival"/></RouterLink></div>
-            <div><RouterLink to="/Concert"><Bouton class="my-4" Nom="Le concert"/></RouterLink></div>
-            <div><RouterLink to="/Contact"><Bouton class="my-4" Nom="Nous contacter"/></RouterLink></div>
+        <div class="grid grid-cols-3 text-center gap-4">
+            <div>
+                <div><RouterLink to="/Programme"><Bouton class="my-4" Nom="Voir le programme"/></RouterLink></div>
+                <div><RouterLink to="/Artistes"><Bouton class="my-4" Nom="Les artistes"/></RouterLink></div>
+            </div> 
+            <div>
+                <div><RouterLink to="/Festival"><Bouton class="my-4" Nom="Le festival"/></RouterLink></div>
+                <div><RouterLink to="/Concert"><Bouton class="my-4" Nom="Le concert"/></RouterLink></div>
+            </div>
+                <div><RouterLink to="/Contact"><Bouton class="my-4" Nom="Nous contacter"/></RouterLink></div>
         </div>
     </div>
 </div>
