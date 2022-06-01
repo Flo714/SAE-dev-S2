@@ -74,12 +74,7 @@
             <p class="font-bold text-base mt-5 mr-3 ">3 jours de folie</p>
         </div>
         </div>
-        
     </section>
-
-
-
-
 </template>
 
 <script>
