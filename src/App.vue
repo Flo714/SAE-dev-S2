@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <RouterLink to="/"><Logo class="ml-2"/>
       <span class="sr-only">Site Du Tradi'Val</span></RouterLink>
 
-      <p class="text-text text-4xl font-bold mt-8 md:text-5xl lg:hidden">Tradi'Val</p>
+      <p class="text-4xl text-jaune font-bold mt-8 md:text-5xl lg:hidden">Tradi'Val</p>
 
 
       <!-- Menu -->

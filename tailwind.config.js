@@ -9,7 +9,6 @@ module.exports = {
         "marron": "#B45309",
         "jaune": "#FBBF24",
         "hover": "#DC7700",
-        "text": "var(--couleur-text)",
         "fond":"var(--couleur-fond)",
         "Dark-marron": "var(--couleur-interactive)",
       },

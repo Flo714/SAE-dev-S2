@@ -9,8 +9,7 @@ Responsable publication : https://tradi-val.fr
 Le responsable publication est une personne physique ou une personne morale.
 Webmaster : Demortiere – https://tradi-val.fr
 Hébergeur : ovh – 2 rue Kellermann 59100 Roubaix 1007</p>
-    <p class="my-2">Délégué à la protection des données : Demortiere – florentin.demortiere@edu.univ-fcomte.fr
-Ce modèle de mentions légales est proposé par le générateur gratuit de mentions légales pour un site internet</p>
+    <p class="my-2">Délégué à la protection des données : Demortiere – florentin.demortiere@edu.univ-fcomte.fr</p>
 
     <h2 class="my-6 md:text-2xl lg:text-3xl">2. Conditions générales d’utilisation du site et des services proposés</h2>
 
