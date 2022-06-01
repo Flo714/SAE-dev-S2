@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       "colors": {
         "marron": "#B45309",
+        "marron+": "#6B2E00",
         "jaune": "#FBBF24",
         "hover": "#DC7700",
         "fond":"var(--couleur-fond)",
