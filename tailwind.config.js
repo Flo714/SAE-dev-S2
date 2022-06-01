@@ -9,7 +9,8 @@ module.exports = {
         "marron": "#B45309",
         "jaune": "#FBBF24",
         "fond": "#FEFFB8",
-        "hover": "#DC7700"
+        "hover": "#DC7700",
+        "Dark-marron": "#6B2E00"
       },
       "fontFamily": {
         "gabo-drive": "Gabo Drive",

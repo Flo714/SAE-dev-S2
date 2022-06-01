@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 <template>
   <header>
-    <div class="flex justify-between p-1 bg-marron">
+    <div class="flex justify-between p-1 bg-Dark-marron">
       <RouterLink to="/"><Logo class="ml-2"/>
       <span class="sr-only">Site Du Tradi'Val</span></RouterLink>
 
@@ -18,7 +18,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <Menu class="m-3 mt-4 justify-end"/>
         <span class="sr-only">Menu</span>
       </button>
-      <div id="menu" class="fixed inset-0 z-20 translate-x-full lg:hidden bg-marron motion-safe:duration-1000 motion-safe:transition-transform" 
+      <div id="menu" class="fixed inset-0 z-20 translate-x-full lg:hidden bg-marron dark:bg-Dark-marron motion-safe:duration-1000 motion-safe:transition-transform" 
         :class="{ 'translate-x-0': menuOuvert }">
         <button class="text-xl absolute top-2 right-3" aria-haspopup="true"
           aria-controls="menu"
@@ -44,10 +44,10 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
     <a href="#content" class="sr-only focus:not-sr-only"> Passez au contenu </a>
   </header>
-  <main id="content" class="bg-fond px-4 xl:px-8 ">
+  <main id="content" class="bg-fond px-4 xl:px-8 dark:bg-marron">
     <Router-View />
   </main>
-  <footer class="bg-marron p-6">
+  <footer class="bg-marron dark:bg-Dark-marron p-6">
     <div class="max-w-6xl m-auto text-gray-900 flex flex-wrap justify-left text-lg my-6">
       <div class="w-1/2 sm:w-4/12 md:w-3/12">
         <h4 class="my-6">Liens</h4>
