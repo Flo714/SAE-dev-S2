@@ -12,8 +12,8 @@
             <div class="">
               <span class="">Nom</span>
             </div>
-            <input type="text" class="" required />
-            <button class="" type="submit" title="Création">
+            <input type="text" class="" v-model="Nom" required />
+            <button class="" type="button" @click='createArtistes()' title="Création">
               <Modifier />
             </button>
           </div>
@@ -48,10 +48,10 @@
                                 <span class="">Nom</span>
                               </div>
                               <input type="text" class="" v-model="Artistes.Nom" required />
-                              <button class="" type="submit" title="Modification">
+                              <button class="" type="button" @click.prevent="updateArtistes(Artistes)" title="Modification">
                                 <Modifier />
                               </button>
-                              <button class="" type="submit" title="Suppression">
+                              <button class="" type="button" @click.prevent="deleteArtistes(Artistes)" title="Suppression">
                                 <Delete />
                               </button>
                             </div>
@@ -170,6 +170,41 @@ export default {
                     this.listeArtistesSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()})); 
                 })
             },
+            async createArtistes(){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                const dbArtistes= collection(firestore, "Artistes");
+                // On passe en paramètre format json
+                // Les champs à mettre à jour
+                // Sauf le id qui est créé automatiquement
+                const docRef = await addDoc(dbArtistes,{
+                    Nom: this.Nom
+                })
+                console.log('document créé avec le id : ', docRef.id);
+             },
+            async updateArtistes(Artistes){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                // Reference du pays à modifier
+                const docRef = doc(firestore, "Artistes", Artistes.id);
+                // On passe en paramètre format json
+                // Les champs à mettre à jour
+                await updateDoc(docRef, {
+                    Nom: Artistes.Nom
+                }) 
+             },
+
+            async deleteArtistes(Artistes){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                // Reference du pays à supprimer
+                const docRef = doc(firestore, "Artistes", Artistes.id);
+                // Suppression du pays référencé
+                await deleteDoc(docRef);
+             },
 
         },
         
