@@ -8,9 +8,10 @@ module.exports = {
       "colors": {
         "marron": "#B45309",
         "jaune": "#FBBF24",
-        "fond": "#FEFFB8",
         "hover": "#DC7700",
-        "Dark-marron": "#6B2E00"
+        "text": "var(--couleur-text)",
+        "fond":"var(--couleur-fond)",
+        "Dark-marron": "var(--couleur-interactive)",
       },
       "fontFamily": {
         "gabo-drive": "Gabo Drive",
@@ -22,10 +23,6 @@ module.exports = {
       backgroundImage: {
         'hexa': "url('/public/icon_svg/Polygon.svg')",
       }
-
-
-
-
     },
   },
   plugins: [

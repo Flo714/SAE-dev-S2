@@ -1,5 +1,5 @@
 <template>
-<div class="bg-marron dark:bg-Dark-marron rounded-xl px-4 pt-3 shadow-card">
+<div class="bg-Dark-marron rounded-xl px-4 pt-3 shadow-card">
     <div class="flex">
         <img class="rounded-xl w-1/3" :src="Image" alt="Image de l'artiste">
         <div class="mx-4">
