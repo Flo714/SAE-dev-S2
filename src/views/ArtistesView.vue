@@ -20,8 +20,7 @@
             <table class="">
                 <thead>
                     <tr>                      
-                        <th scope="col">
-                          <div class="">Liste des Pays actuels</div>                          
+                        <th scope="col">                        
                           <span class="">
                             <div class="ml-80" >
                                 <div class="">
@@ -45,11 +44,7 @@
                                 <span class="">Nom</span>
                               </div>
                               <input type="text" class="" v-model="Artistes.Nom" required />
-                              <RouterLink to="/Modification">
-                                <button class="" type="button" @click.prevent="updateArtistes(Artistes)" title="Modification">
-                                  <Modifier />
-                                </button>
-                              </RouterLink>
+
                               <button class="" type="button" @click.prevent="deleteArtistes(Artistes)" title="Suppression">
                                 <Delete />
                               </button>
