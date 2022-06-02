@@ -89,6 +89,8 @@
     </div>
 </template>
 <script>
+import Bouton2 from "../../src/components/Bouton2View.vue"
+
 import { 
     getFirestore, 
     collection, 
