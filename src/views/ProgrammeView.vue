@@ -2,7 +2,7 @@
     <h1 class="py-4 md:text-4xl md:pt-12">La Programmation</h1>
     <div>
       <h2 class="my-4 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Vendredi 7 Août 2022</span></h2>
-       <div  class="flex">
+       <div  class="flex justify-between">
         <div class="">
               <table class="">
                   <tbody>
@@ -10,7 +10,7 @@
                           <td class="">
                             <form>
                               <div class="flex" >
-                                <p><input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-full" v-model="Programme.Nom"  required /></p>
+                                <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="Programme.Nom"  required />
                                 <div class="mt-2">
                                   <button class="" type="button" @click="updateProgramme(Programme)"  title="Modification">
                                     <Modifier />
@@ -40,59 +40,45 @@
         </div>
     </div>
     <div class="">
-        <form>
-          <h6>Samedi</h6>
+        <h2 class="my-4 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Samedi 8 Août 2022</span></h2>
+        <div class="flex justify-between">
           <div class="">
-            <div class="">
-              <span class="">Nom</span>
-            </div>
-            <input type="text" class="form-control" v-model="NomS" required />
-            <button class="" type="button" @click='createProgrammeS()' title="Création">
-              <Modifier />
-            </button>
-          </div>
-        </form>
-
-        <div class="">
-            <table class="">
-                <tbody>
-                    <tr v-for='ProgrammeS in orderByName2' :key='ProgrammeS.id'>
-                        <td>
-                          <form>
-                            <div class="" >
-                              <div class="">
-                                <span class="">Nom</span>
+              <table class="">
+                  <tbody>
+                      <tr v-for='ProgrammeS in orderByName2' :key='ProgrammeS.id'>
+                          <td>
+                            <form>
+                              <div class="" >
+                                <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeS.NomS"  required />
+                                <button class="" type="button" @click="updateProgrammeS(ProgrammeS)"  title="Modification">
+                                  <Modifier />
+                                </button>
+                                <button class="" type="button" @click="deleteProgrammeS(ProgrammeS)" title="Suppression">
+                                  <Delete />
+                                </button>
                               </div>
-                              <input type="text" class="w-80" v-model="ProgrammeS.NomS"  required />
-                              <button class="" type="button" @click="updateProgrammeS(ProgrammeS)"  title="Modification">
-                                <Modifier />
-                              </button>
-                              <button class="" type="button" @click="deleteProgrammeS(ProgrammeS)" title="Suppression">
-                                <Delete />
-                              </button>
-                            </div>
-                          </form>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </form>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+          <form>
+            <div class="flex justify-end mr-40">
+              <div>
+                <h3>Mettre une nouvelle Heure</h3>
+                <input type="text" class="form-control" v-model="NomS" required />
+                <button class="" type="button" @click='createProgrammeS()' title="Création">
+                  <Modifier />
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
     </div>
     <div class="">
-        <form>
-          <h6>Dimanche</h6>
-          <div class="">
-            <div class="">
-              <span class="">Nom</span>
-            </div>
-            <input type="text" class="form-control" v-model="NomD" required />
-            <button class="" type="button" @click='createProgrammeD()' title="Création">
-              <Modifier />
-            </button>
-          </div>
-        </form>
-
-        <div class="">
+        <h2 class="my-4 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Dimanche 9 Août 2022</span></h2>
+        <div class="flex justify-between">
             <table class="">
                 <tbody>
                     <tr v-for='ProgrammeD in orderByName3' :key='ProgrammeD.id'>
@@ -102,7 +88,7 @@
                               <div class="">
                                 <span class="">Nom</span>
                               </div>
-                              <input type="text" class="w-80" v-model="ProgrammeD.NomD"  required />
+                              <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeD.NomD"  required />
                               <button class="" type="button" @click="updateProgrammeD(ProgrammeD)"  title="Modification">
                                 <Modifier />
                               </button>
@@ -115,6 +101,19 @@
                     </tr>
                 </tbody>
             </table>
+          <form>
+            <div class="flex justify-end mr-40">
+              <div>
+                <div class="">
+                  <span class="">Nom</span>
+                </div>
+                <input type="text" class="form-control" v-model="NomD" required />
+                <button class="" type="button" @click='createProgrammeD()' title="Création">
+                  <Modifier />
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
     </div>
     <section class="my-8 lg:ml-10">
