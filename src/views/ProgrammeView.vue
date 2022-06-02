@@ -78,6 +78,45 @@
             </table>
         </div>
     </div>
+    <div class="">
+        <form>
+          <h6>Dimanche</h6>
+          <div class="">
+            <div class="">
+              <span class="">Nom</span>
+            </div>
+            <input type="text" class="form-control" v-model="NomD" required />
+            <button class="" type="button" @click='createProgrammeD()' title="Création">
+              <Modifier />
+            </button>
+          </div>
+        </form>
+
+        <div class="">
+            <table class="">
+                <tbody>
+                    <tr v-for='ProgrammeD in orderByName3' :key='ProgrammeD.id'>
+                        <td>
+                          <form>
+                            <div class="" >
+                              <div class="">
+                                <span class="">Nom</span>
+                              </div>
+                              <input type="text" class="w-80" v-model="ProgrammeD.NomD"  required />
+                              <button class="" type="button" @click="updateProgrammeD(ProgrammeD)"  title="Modification">
+                                <Modifier />
+                              </button>
+                              <button class="" type="button" @click="deleteProgrammeD(ProgrammeD)" title="Suppression">
+                                <Delete />
+                              </button>
+                            </div>
+                          </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <section class="my-8 lg:ml-10">
         <h2 class="my-4 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Vendredi 7 Août 2022</span></h2>
         <ul class="mx-6">
