@@ -11,7 +11,7 @@
                             <img class="" :src="imageData"/>
                         </div>
                         <label class="bg-jaune hover:text-jaune hover:bg-marron+ rounded-xl p-3 font-bold text-center" for="file">
-                            <input type="file" class="hidden" ref="file" id="file"
+                            <input type="file" class="hidden" ref="file" id="file" required
                             @change="previewImage">
                             Selectionner une image
                         </label>
@@ -30,16 +30,16 @@
                         <label class="flex flex-col mb-3">
                             <span class="font-semibold my-1">Biographie :  </span>
                             <input v-model="Artistes.Bio"
-                                class="bg-jaune rounded-xl border-none" type="text" placeholder="Biographie">
+                                class="bg-jaune rounded-xl border-none" type="text" placeholder="Biographie" required>
                         </label>
                         <label class="flex flex-col mb-3">
                             <span class="font-semibold my-1">Jours de disponibilité :</span>
                             <input v-model="Artistes.Jour"
-                                class="bg-jaune rounded-xl border-none" type="text" placeholder="Les disponibilité">
+                                class="bg-jaune rounded-xl border-none" type="text" placeholder="Les disponibilité" required>
                         </label>
                         <div class="flex justify-between gap-10 my-4">
                             <button type="submit">
-                                <Bouton2 class="w-32" Nom="Sauvegarder"/>
+                                <Bouton2 class="w-32" Nom="Créer"/>
                             </button>
 
                             <RouterLink to="/Artistes" >

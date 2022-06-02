@@ -5,10 +5,10 @@
         <form>
           <div class="">
             <div class="">
-              <span class="">Créer un artiste</span>
+              <h2 class="">Créer un artiste</h2>
             </div>
             <RouterLink to="/Creation">
-              <div class="flex justify-end mr-40 my-6">
+              <div class=" ml-56 my-10">
                 <Bouton @click='createArtistes()' title="Création"
                 Nom="Créer"/>
               </div>
@@ -51,9 +51,11 @@
                                     </button>
                                 </RouterLink>
                               </span>
-                              <button class="" type="button" @click.prevent="deleteArtistes(Artistes)" title="Suppression">
-                                <Delete />
-                              </button>
+                              <RouterLink :to="{ name:'DeleteView', params: { id: Artistes.id}}">
+                                <button class="" type="button" @click.prevent="deleteArtistes(Artistes)" title="Suppression">
+                                  <Delete />
+                                </button>
+                              </RouterLink>
                             </div>
                           </form>
                         </td>

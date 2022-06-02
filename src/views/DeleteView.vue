@@ -1,18 +1,18 @@
 <template>
     <div>
-        <h1 class="py-8 md:text-4xl md:pt-8 lg:text-5xl">Créer les artistes</h1>
+        <h1 class="py-8 md:text-4xl md:pt-8 lg:text-5xl">Supprimer un artiste</h1>
 
 
         <div class="">
         <form enctype="multipart/form-data"
-            @submit.prevent="createArtistes">
+            @submit.prevent="deleteArtistes">
             <div class="">
 
                 <div class="">   
                     <div class="">
                         <div class="">
                             <div>
-                                <img class="" :src="imageData"/>
+                                <img class="" :src="photoActuelle"/>
                             </div>
                         </div>
 
@@ -23,7 +23,8 @@
                                 </div>
                                 <input 
                                     class="" placeholder="Nom de la personne"
-                                    v-model="Artistes.Nom" required />                    
+                                    v-model="Artistes.Nom"
+                                    disabled />                    
                             </div>
                             <br/>
                             <div class="">
@@ -33,7 +34,7 @@
                                 <input 
                                     v-model="Artistes.Role"
                                     class="" placeholder="Role de la personne"
-                                    required />                    
+                                    disabled />                    
                             </div>
                             <br/>
                             <div class="">
@@ -56,7 +57,7 @@
                                     v-model="Artistes.Bio"
                                     placeholder="Biographie"
                                     class="" 
-                                    required />                    
+                                    disabled />                    
                             </div>
                             <br/>
                             <div class="">
@@ -67,19 +68,25 @@
                                     v-model="Artistes.Jour"
                                     placeholder="Jour"
                                     class="" 
-                                    required />                    
+                                    disabled />                    
                             </div>
                             <br/>
                         </div>
                     </div>               
                 </div>
 
+                <div>
+                    <h3>
+                        Attention vous allez supprimer ce participant, cette action est irréversible !!
+                    </h3>
+                </div>
+
                 <div class="flex gap-6">   
                     <button type="submit" class="">
-                        Créer
+                        Supprimer
                     </button>
                     <button class="" >
-                        <RouterLink to="/Artistes" >Cancel</RouterLink>
+                        <RouterLink to="/Artistes" >Annuler</RouterLink>
                     </button>
                 </div>
 
@@ -126,9 +133,11 @@ import {
     getFirestore, 
     collection, 
     doc, 
+    getDoc,
     getDocs, 
     addDoc, 
     updateDoc, 
+    setDoc,
     deleteDoc, 
     onSnapshot,
     query,
@@ -138,7 +147,10 @@ import {
     getStorage,
     ref,
     getDownloadURL,
+    uploadBytes,
     uploadString,
+    deleteObject,
+    listAll
     } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js'
 
 // import { preview } from "vite";
@@ -147,60 +159,75 @@ import {
 export default {
     data (){
         return {
-            imageData:null,
             Artistes: {
                 Nom:null,
                 Role:null,
                 Bio:null,
                 Jour:null,
                 photo:null,
-            }
+            },
+            refArtistes:null,
+            photoActuelle:null,
         }
     },
     name: "CréationView",
     components: { Bouton2 },
 
     mounted (){
-        this.getArtistes();
+        this.getArtistes(this.$route.params.id);
     },
 
-    methods : {
-        async getArtistes (){
+    methods :{
+
+        async getArtistes(id){
+            // Obtenir Firestore
             const firestore = getFirestore();
-            const dbArtistes = collection(firestore, "Artistes");
-            const q = query(dbArtistes, orderBy('Nom','asc'));
-            await onSnapshot(q, (snapshot) => {
-                this.listeArtistes = snapshot.docs.map(doc => (
-                    {id:doc.id, ...doc.data()}
-                ))
-        console.log("Liste des Artistes", this.listeArtistes)
+            // Base de données (collection)  document participant
+            // Récupération sur Firestore du participant via son id
+            const docRef = doc(firestore, "Artistes", id);
+            // Référence du participant concerné
+            this.refArtistes = await getDoc(docRef);
+            // Test si le participant demandé existe
+            if(this.refArtistes.exists()){
+                // Si oui on récupère ses données
+                this.Artistes = this.refArtistes.data();
+                // Mémorisation photoActuelle
+                this.photoActuelle = this.Artistes.photo;
+            }else{
+                // Sinon simple message d'erreur
+                this.console.log("Artistes inexistant");
+            }
+            // Obtenir le Storage
+            const storage = getStorage();
+            // Référence de l'image du participant
+            const spaceRef = ref(storage, 'Artistes/'+this.Artistes.photo);
+            // Récupération de l'url complète de l'image
+            getDownloadURL(spaceRef)
+                .then((url) => {
+                    // Mise à jour de l'image prévisualisée
+                    this.photoActuelle = url;
+            })
+            .catch((error) =>{
+                console.log('erreur downloadUrl', error);
             })
         },
-        previewImage: function(event) {
-            //debugger
-            this.file = this.$refs.file.files[0];
-            this.Artistes.photo = this.file.name;
-            var input = event.target;
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = (e) => {
-                    this.imageData = e.target.result;
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        },
-        async createArtistes(){
-            const storage = getStorage();
-            const refStorage = ref(storage, 'Artistes/'+this.Artistes.photo);
-            await uploadString(refStorage, this.imageData, 'data_url').then((snapshot) => {
-                console.log('Uploaded a base64 string');
-                const db = getFirestore();
-                const docRef = addDoc(collection(db, 'Artistes'), this.Artistes);
-            });
-            this.$router.push('/Artistes')
-        },
 
-    },
+        async deleteArtistes(){
+            const firestore = getFirestore();
+            // Suppresion du Artistes
+            await deleteDoc(doc(firestore, "Artistes", this.$route.params.id));
+
+            // Suppresson de l'image
+            const storage = getStorage();
+            // Référence du fichier de la photo
+            let docRef = ref(storage, 'Artistes/'+this.Artistes.photo);
+            // Suppression du fichier
+            deleteObject(docRef);
+
+            // redirection sur la liste des Artistes
+            this.$router.push('/Artistes');       
+        }
+    }
 };
 
 </script>
