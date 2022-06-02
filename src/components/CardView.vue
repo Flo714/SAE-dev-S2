@@ -1,7 +1,7 @@
 <template>
 <div class="bg-Dark-marron rounded-xl px-4 pt-3 shadow-card">
     <div class="flex">
-        <img class="rounded-xl w-1/3" :src="Image" alt="Image de l'artiste">
+        <img class="rounded-xl w-1/3" :src="photo" alt="Image de l'artiste">
         <div class="mx-4">
             <h3 class="text-base">{{ Nom }}</h3>
             <p class="text-xs ml-2">{{ Role }}</p>
@@ -22,7 +22,7 @@ export default {
         Role: String,
         Bio: String,
         Jour: String,
-        Image: String,
+        photo: String,
     }
 };
 </script>

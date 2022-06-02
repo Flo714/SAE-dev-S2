@@ -1,11 +1,11 @@
 <template>
-<div>
-        <h1 class="py-8 md:text-4xl md:pt-8 lg:text-5xl">Modifier les artistes</h1>
+    <div>
+        <h1 class="py-8 md:text-4xl md:pt-8 lg:text-5xl">Créer les artistes</h1>
 
 
         <div class="">
         <form enctype="multipart/form-data"
-            @submit.prevent="updateArtistes">
+            @submit.prevent="createArtistes">
             <div class="">
 
                 <div class="">   
@@ -76,7 +76,7 @@
 
                 <div class="flex gap-6">   
                     <button type="submit" class="">
-                        Modifier
+                        Créer
                     </button>
                     <button class="" >
                         <RouterLink to="/Artistes" >Cancel</RouterLink>
@@ -86,26 +86,63 @@
             </div>
         </form>        
         </div>
+
+        <section class="pb-6 mx-2 md:max-w-[70%] md:m-auto lg:max-w-[50%] lg:pb-14">
+        <div class="bg-marron dark:bg-Dark-marron p-2 rounded-xl flex gap-2">
+            <div class="mx-auto flex flex-col justify-end mb-10">
+                <img class="mb-10 w-40 rounded-xl" src="../../public/img-squirrel/Crystal-Duet.webp" alt="Image de l'artiste">
+                <Bouton2 class="w-32 mx-auto" Nom="Changer l'image"/>
+            </div>
+            <div class="m-auto">
+                <label class="flex flex-col mb-3">
+                    <span class="font-semibold my-1" >Nom :  </span>
+                    <input type="text" class="bg-jaune rounded-xl border-none w-80">
+                </label>
+                <label class="flex flex-col mb-3">
+                    <span class="font-semibold my-1">Catégorie :  </span>
+                    <input type="text" class="bg-jaune rounded-xl border-none" placeholder="Catégorie">
+                </label>
+                <label class="flex flex-col mb-3">
+                    <span class="font-semibold my-1">Biographie :  </span>
+                    <input type="email" class="bg-jaune rounded-xl border-none" placeholder="Biographie">
+                </label>
+                <label class="flex flex-col mb-3">
+                    <span class="font-semibold my-1">Jours de disponibilité :</span>
+                    <input type="text" class="bg-jaune rounded-xl border-none" placeholder="Les disponibilité">
+                </label>
+                <div class="flex justify-end mt-8 mb-2 mr-4">
+                    <Bouton2 Nom="Sauvegarder"/>
+                </div>
+            </div>
+        </div>
+        </section>
+    </div>
 </template>
+
 <script>
+import Bouton2 from "../components/Bouton2View.vue"
+
 import { 
     getFirestore, 
     collection, 
     doc, 
-    getDoc,
+    getDocs, 
+    addDoc, 
     updateDoc, 
-    onSnapshot, 
+    deleteDoc, 
+    onSnapshot,
     query,
-    orderBy
-} from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js'
+    orderBy } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js'
 
-// Storage
-import { 
-    getStorage, 
-    ref, 
-    getDownloadURL, 
+import {
+    getStorage,
+    ref,
+    getDownloadURL,
     uploadString,
-} from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js'
+    } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js'
+
+// import { preview } from "vite";
+
 
 export default {
     data (){
@@ -117,20 +154,16 @@ export default {
                 Bio:null,
                 Jour:null,
                 photo:null,
-            },
-            refArtistes:null,
-            imgModifiee:false,
-            photoActuelle:null,
+            }
         }
     },
     name: "CréationView",
     components: { Bouton2 },
 
-    mounted(){
-console.log("id Artistes", this.$route.params.id);
-        this.getArtistes(this.$route.params.id);
+    mounted (){
         this.getArtistes();
     },
+
     methods : {
         async getArtistes (){
             const firestore = getFirestore();
@@ -140,11 +173,34 @@ console.log("id Artistes", this.$route.params.id);
                 this.listeArtistes = snapshot.docs.map(doc => (
                     {id:doc.id, ...doc.data()}
                 ))
+        console.log("Liste des Artistes", this.listeArtistes)
             })
         },
-    }
-}
+        previewImage: function(event) {
+            //debugger
+            this.file = this.$refs.file.files[0];
+            this.Artistes.photo = this.file.name;
+            var input = event.target;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = (e) => {
+                    this.imageData = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        },
+        async createArtistes(){
+            const storage = getStorage();
+            const refStorage = ref(storage, 'Artistes/'+this.Artistes.photo);
+            await uploadString(refStorage, this.imageData, 'data_url').then((snapshot) => {
+                console.log('Uploaded a base64 string');
+                const db = getFirestore();
+                const docRef = addDoc(collection(db, 'Artistes'), this.Artistes);
+            });
+            this.$router.push('/Artistes')
+        },
 
-
+    },
+};
 
 </script>

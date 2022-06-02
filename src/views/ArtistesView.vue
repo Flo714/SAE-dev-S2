@@ -13,9 +13,9 @@
               <span class="">Nom</span>
             </div>
             <input type="text" class="" v-model="Nom" required />
-            <button class="" type="button" @click='createArtistes()' title="Création">
+            <RouterLink to="/Creation"><button class="" type="button" @click='createArtistes()' title="Création">
               <Modifier />
-            </button>
+            </button></RouterLink>
           </div>
         </form>
 
@@ -48,9 +48,9 @@
                                 <span class="">Nom</span>
                               </div>
                               <input type="text" class="" v-model="Artistes.Nom" required />
-                              <button class="" type="button" @click.prevent="updateArtistes(Artistes)" title="Modification">
+                              <RouterLink to="/Modification"><button class="" type="button" @click.prevent="updateArtistes(Artistes)" title="Modification">
                                 <Modifier />
-                              </button>
+                              </button></RouterLink>
                               <button class="" type="button" @click.prevent="deleteArtistes(Artistes)" title="Suppression">
                                 <Delete />
                               </button>
@@ -92,7 +92,9 @@ import {
     addDoc, 
     updateDoc, 
     deleteDoc, 
-    onSnapshot } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js'
+    onSnapshot,
+    query,
+    orderBy } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js'
 
 import {
     getStorage,
@@ -132,7 +134,6 @@ export default {
         mounted(){ // Montage de la vue
             // Appel de la liste des pays synchronisée
             this.getArtistesSynchro();
-            this.getArtistes();
         },
 
         methods: {
@@ -150,6 +151,7 @@ export default {
                     this.listeArtistesSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()})); 
                 })
             },
+
             async createArtistes(){
                 // Obtenir Firestore
                 const firestore = getFirestore();
@@ -185,31 +187,6 @@ export default {
                 // Suppression du pays référencé
                 await deleteDoc(docRef);
              },
-
-            async getParticipants(){
-            // Obtenir Firestore
-            const firestore = getFirestore();
-            // Base de données (collection)  document participant
-            const dbPart = collection(firestore, "participant");
-            // Liste des participants triés sur leur nom
-            const q = query(dbPart, orderBy('nom', 'asc'));
-            await onSnapshot(q, (snapshot) => {
-                this.listeParticipant = snapshot.docs.map(doc => (
-                    {id:doc.id, ...doc.data()}
-                ))
-                this.listeParticipant.forEach(function(personne){
-                    const storage = getStorage();
-                    const spaceRef = ref(storage, 'participant/'+personne.photo);
-                    getDownloadURL(spaceRef)
-                    .then((url) => {
-                        personne.photo = url;
-                    })
-                    .catch((error) =>{
-                        console.log('erreur downloadUrl', error);
-                    })
-                })
-            })      
-        },
 
         },
         
