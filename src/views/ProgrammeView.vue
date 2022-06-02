@@ -1,42 +1,42 @@
 <template>
     <h1 class="py-4 md:text-4xl md:pt-12">La Programmation</h1>
-    <div class="">
-        <form>
-        <h2 class="my-4 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Vendredi 7 Août 2022</span></h2>
-          <div class="flex justify-end mr-40">
-            <div>
-              <h3>Mettre une nouvelle Heure</h3>
-              <input type="text" class="form-control" v-model="Nom" required />
-              <button class="" type="button" @click='createProgramme()' title="Création">
-                <Modifier />
-              </button>
-            </div>
-          </div>
-        </form>
-
+    <div>
+      <h2 class="my-4 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Vendredi 7 Août 2022</span></h2>
+       <div  class="flex">
         <div class="">
-            <table class="">
-                <tbody>
-                    <tr v-for='Programme in orderByName' :key='Programme.id'>
-                        <td>
-                          <form>
-                            <div class="" >
-                              <div class="">
-                                <span class="">Nom</span>
+              <table class="">
+                  <tbody>
+                      <tr v-for='Programme in orderByName' :key='Programme.id'>
+                          <td class="">
+                            <form>
+                              <div class="flex" >
+                                <p><input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-full" v-model="Programme.Nom"  required /></p>
+                                <div class="mt-2">
+                                  <button class="" type="button" @click="updateProgramme(Programme)"  title="Modification">
+                                    <Modifier />
+                                  </button>
+                                  <button class="" type="button" @click="deleteProgramme(Programme)" title="Suppression">
+                                    <Delete />
+                                  </button>
+                                </div>
                               </div>
-                              <input type="text" class="w-80" v-model="Programme.Nom"  required />
-                              <button class="" type="button" @click="updateProgramme(Programme)"  title="Modification">
-                                <Modifier />
-                              </button>
-                              <button class="" type="button" @click="deleteProgramme(Programme)" title="Suppression">
-                                <Delete />
-                              </button>
-                            </div>
-                          </form>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </form>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+        <form>
+            <div class="flex justify-end mr-40">
+              <div>
+                <h3>Mettre une nouvelle Heure</h3>
+                <input type="text" class="form-control" v-model="Nom" required />
+                <button class="" type="button" @click='createProgramme()' title="Création">
+                  <Modifier />
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
     </div>
     <div class="">
