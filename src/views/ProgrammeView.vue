@@ -1,6 +1,67 @@
 <template>
     <h1 class="py-4 md:text-4xl md:pt-12">La Programmation</h1>
+    <div class="">
+        <div class="">
+            <h5>Liste des pays</h5>
+        </div>    
+        <hr/>
+        <form>
+          <h6>Nouveau pays</h6>
+          <div class="">
+            <div class="">
+              <span class="">Nom</span>
+            </div>
+            <input type="text" class="" v-model='nom' required />
+            <button class="" type="button" @click='createPays()' title="Création">
+              <Modifier />
+            </button>
+          </div>
+        </form>
 
+        <div class="">
+            <table class="">
+                <thead>
+                    <tr>                      
+                        <th scope="col">
+                          <div class="">Liste des Pays actuels</div>                          
+                          <span class="">
+                            <div class="" >
+                                <div class="">
+                                  <span class="" >Filtrage</span>
+                                </div>
+                                <input type="text" class="" v-model="filter" />
+                                <button class="" type="button"  title="Filtrage">
+                                  <Search />
+                                </button>
+                              </div>
+                          </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                          <form 
+                            v-for="pays in filterByName" :key="pays.id">
+                            <div class="" >
+                              <div class="">
+                                <span class="">Nom</span>
+                              </div>
+                              <input type="text" class="" v-model='pays.nom' required />
+                              <button class="" type="button"  @click="updatePays(pays)" title="Modification">
+                                <Modifier />
+                              </button>
+                              <button class="" type="button" @click="deletePays(pays)" title="Suppression">
+                                <Delete />
+                              </button>
+                            </div>
+                          </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <section class="my-8 lg:ml-10">
         <h2 class="my-4 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Vendredi 7 Août 2022</span></h2>
         <ul class="mx-6">
@@ -41,8 +102,114 @@
 <script>
 // import  from ""
 
+import { 
+    getFirestore, 
+    collection, 
+    doc, 
+    getDocs, 
+    addDoc, 
+    updateDoc, 
+    deleteDoc, 
+    onSnapshot,
+    query,
+    orderBy } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js'
+
+import {
+    getStorage,
+    ref,
+    getDownloadURL,
+    uploadString,
+    } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js'
+
 export default {
-  name: "App",
-  components: {  },
+    data(){ // Données de la vue
+          return{                
+              nom:null, // Pour la création d'un nouveau pays
+              listeProgrammeSynchro:[], // Liste des pays synchronisée - collection pays de Firebase
+              filter:'',
+              listeProgramme:[],
+          }
+        },
+        
+        name: "Programme",
+        components: { },
+
+        computed:{
+            orderByName:function(){
+                return this.listeProgrammeSynchro.sort(function(a, b){
+                  if(a.Heure < b.Heure)  return -1;
+                  if(a.Heure > b.Heure)  return 1;
+                  return 0
+                })
+            },
+            filterByName:function(){
+                if(this.filter.length > 0){
+                    let filter = this.filter.toLowerCase();
+                    return this.orderByName.filter(function(Programme){
+                        return Programme.Heure.toLowerCase().includes(filter);
+                    })
+                }else{
+                    return this.orderByName;
+                }
+            }
+        },
+        mounted(){ // Montage de la vue
+            // Appel de la liste des pays synchronisée
+            this.getProgrammeSynchro();
+        },
+
+        methods: {
+            async getProgrammeSynchro(){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                const dbArtistes= collection(firestore, "Programme");
+                // Liste des pays synchronisée
+                const query = await onSnapshot(dbProgramme, (snapshot) =>{
+                    //  Récupération des résultats dans listePaysSynchro
+                    // On utilse map pour récupérer l'intégralité des données renvoyées
+                    // on identifie clairement le id du document
+                    // les rest parameters permet de préciser la récupération de toute la partie data
+                    this.listeProgrammeSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()})); 
+                })
+            },
+
+            async createProgramme(){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                const dbProgramme= collection(firestore, "Programme");
+                // On passe en paramètre format json
+                // Les champs à mettre à jour
+                // Sauf le id qui est créé automatiquement
+                const docRef = await addDoc(dbProgramme,{
+                    Heure: this.Heure,
+                })
+                console.log('document créé avec le id : ', docRef.id);
+             },
+            async updateProgramme(Programme){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                // Reference du pays à modifier
+                const docRef = doc(firestore, "Programme", Programme.id);
+                // On passe en paramètre format json
+                // Les champs à mettre à jour
+                await updateDoc(docRef, {
+                    Heure: Programme.Heure
+                }) 
+             },
+
+            async deleteProgramme(Programme){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                // Reference du pays à supprimer
+                const docRef = doc(firestore, "Programme", Programme.id);
+                // Suppression du pays référencé
+                await deleteDoc(docRef);
+             },
+
+        },
 };
 </script>

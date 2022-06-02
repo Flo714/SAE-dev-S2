@@ -27,8 +27,8 @@ const router = createRouter({
     { path: '/style-guide', name: 'styleguideView', component: styleguideView },
     { path: '/:pathMatch(.*)*', name: 'Page404View', component: Page404View },
     { path: '/Creation', name: 'CreationView', component: CreationView },
-    { path: '/Modification', name: 'ModificationView', component: ModificationView },
-    { path: '/Delete', name: 'DeleteView', component: DeleteView },
+    { path: '/Modification/:id', name: 'ModificationView', component: ModificationView },
+    { path: '/Delete/:id', name: 'DeleteView', component: DeleteView },
     // ici les autres routes
   ]
 })
