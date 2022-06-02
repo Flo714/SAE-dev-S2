@@ -1,6 +1,95 @@
 <template>
     <h1 class="py-8 md:text-4xl md:pt-8 lg:text-5xl">Modifier les artistes</h1>
 
+
+    <div class="">
+        <form enctype="multipart/form-data"
+            @submit.prevent="createArtistes">
+            <div class="">
+
+                <div class="">
+                    <h5>Création Artistes</h5>
+                </div>    
+
+                <div class="">   
+                    <div class="">
+                        <div class="">
+                            <div>
+                                <img class="" :src="imageData"/>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <div class="">
+                                <div class="">
+                                    <span class="" >Nom</span>
+                                </div>
+                                <input 
+                                    class="" placeholder="Nom de la personne"
+                                    v-model="Artistes.Nom" required />                    
+                            </div>
+                            <br/>
+                            <div class="">
+                                <div class="">
+                                    <span class="" >Role</span>
+                                </div>
+                                <input 
+                                    v-model="Artistes.Role"
+                                    class="" placeholder="Role de la personne"
+                                    required />                    
+                            </div>
+                            <br/>
+                            <div class="">
+                                <div class="">
+                                    <span class="">Photo</span>
+                                </div>
+                                <div class="">
+                                    <input type="file" class="" ref="file" id="file"
+                                    @change="previewImage"
+                                    >
+                                    <label class="" for="file">Sélectionner l'image</label>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="">
+                                <div class="">
+                                    <span class="" >Biographie</span>
+                                </div>
+                                <input 
+                                    v-model="Artistes.Bio"
+                                    placeholder="Biographie"
+                                    class="" 
+                                    required />                    
+                            </div>
+                            <br/>
+                            <div class="">
+                                <div class="">
+                                    <span class="" >Jour</span>
+                                </div>
+                                <input 
+                                    v-model="Artistes.Jour"
+                                    placeholder="Jour"
+                                    class="" 
+                                    required />                    
+                            </div>
+                            <br/>
+                        </div>
+                    </div>               
+                </div>
+
+                <div class="">   
+                    <button type="submit" class="">
+                        Créer
+                    </button>
+                    <button class="" >
+                        <RouterLink to="/Artistes" >Cancel</RouterLink>
+                    </button>
+                </div>
+
+            </div>
+        </form>        
+    </div>
+
     <section class="pb-6 mx-2 md:max-w-[70%] md:m-auto lg:max-w-[50%] lg:pb-14">
         <div class="bg-marron dark:bg-Dark-marron p-2 rounded-xl flex gap-2">
             <div class="mx-auto flex flex-col justify-end mb-10">
@@ -35,7 +124,83 @@
 <script>
 import Bouton2 from "../../src/components/Bouton2View.vue"
 
+import { 
+    getFirestore, 
+    collection, 
+    doc, 
+    getDocs, 
+    addDoc, 
+    updateDoc, 
+    deleteDoc, 
+    onSnapshot,
+    query,
+    orderBy } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js'
+
+import {
+    getStorage,
+    ref,
+    getDownloadURL,
+    uploadString,
+    } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js'
+import { preview } from "vite";
+
+
 export default {
+    data (){
+        return {
+            imageData:null,
+            Artistes: {
+                Nom:null,
+                photo:null,
+                Role:null,
+                Bio:null,
+                Jour:null,
+            }
+        }
+    },
+    mounted (){
+        this.getArtistes();
+    },
+
+    methods : {
+        async getArtistes (){
+            const firestore = getFirestore();
+            const dbArtistes = collection(firestore, "Artistes");
+            const q = query(dbArtistes, orderBy('Nom','asc'));
+            await onSnapshot(q, (snapshot) => {
+                this.listeArtistes = snapshot.docs.map(doc => (
+                    {id:doc.id, ...doc.data()}
+                ))
+        console.log("Liste des Artistes", this.listeArtistes)
+            })
+        },
+        previewImage: function(event) {
+            this.file = this.$refs.file.files[0];
+            this.Artistes.photo = this.file.name;
+            var input = event.target;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onLoad = (e) => {
+                    this.imageData = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    },
+    async createArtistes(){
+        const storage = getStorage();
+        const refStorage = ref(storage, 'Artistes/'+this.Artistes.photo);
+        await uploadString(refStorage, this.imageData, 'data_url').then((snapshot) => {
+            console.log('Uploaded a base64 string');
+            const db = getFirestore();
+            const docRef = addDoc(collection(db, 'Artistes'), this.Artistes);
+        });
+        this.$router.push('/Artistes')
+    },
+
+
+
+
   name: "App",
   components: { Bouton2 },
 };

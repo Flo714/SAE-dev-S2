@@ -97,11 +97,11 @@ import {
 
 export default {
     data(){ // Données de la vue
-            return{                
-                nom:null, // Pour la création d'un nouveau pays
-                listeArtistesSynchro:[], // Liste des pays synchronisée - collection pays de Firebase
-                filter:''
-            }
+          return{                
+              nom:null, // Pour la création d'un nouveau pays
+              listeArtistesSynchro:[], // Liste des pays synchronisée - collection pays de Firebase
+              filter:''
+          }
         },
         computed:{
             orderByName:function(){
