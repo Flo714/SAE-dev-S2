@@ -85,9 +85,6 @@
                         <td>
                           <form>
                             <div class="" >
-                              <div class="">
-                                <span class="">Nom</span>
-                              </div>
                               <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeD.NomD"  required />
                               <button class="" type="button" @click="updateProgrammeD(ProgrammeD)"  title="Modification">
                                 <Modifier />
@@ -104,9 +101,7 @@
           <form>
             <div class="flex justify-end mr-40">
               <div>
-                <div class="">
-                  <span class="">Nom</span>
-                </div>
+                <h3>Mettre une nouvelle Heure</h3>
                 <input type="text" class="form-control" v-model="NomD" required />
                 <button class="" type="button" @click='createProgrammeD()' title="Création">
                   <Modifier />
