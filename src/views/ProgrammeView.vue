@@ -100,7 +100,9 @@
 </template>
 
 <script>
-// import  from ""
+import Modifier from "../../src/components/icons/ModifierView.vue"
+import Delete from "../../src/components/icons/DeleteView.vue"
+import Search from "../../src/components/icons/SearchView.vue"
 
 import { 
     getFirestore, 
@@ -132,7 +134,7 @@ export default {
         },
         
         name: "Programme",
-        components: { },
+        components: { Modifier, Search, Delete},
 
         computed:{
             orderByName:function(){
