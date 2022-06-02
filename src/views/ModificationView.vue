@@ -1,8 +1,9 @@
 <template>
-    <h1 class="py-8 md:text-4xl md:pt-8 lg:text-5xl">Modifier les artistes</h1>
+    <div>
+        <h1 class="py-8 md:text-4xl md:pt-8 lg:text-5xl">Modifier les artistes</h1>
 
 
-    <div class="">
+        <div class="">
         <form enctype="multipart/form-data"
             @submit.prevent="createArtistes">
             <div class="">
@@ -77,7 +78,7 @@
                     </div>               
                 </div>
 
-                <div class="">   
+                <div class="flex gap-6">   
                     <button type="submit" class="">
                         Créer
                     </button>
@@ -88,9 +89,9 @@
 
             </div>
         </form>        
-    </div>
+        </div>
 
-    <section class="pb-6 mx-2 md:max-w-[70%] md:m-auto lg:max-w-[50%] lg:pb-14">
+        <section class="pb-6 mx-2 md:max-w-[70%] md:m-auto lg:max-w-[50%] lg:pb-14">
         <div class="bg-marron dark:bg-Dark-marron p-2 rounded-xl flex gap-2">
             <div class="mx-auto flex flex-col justify-end mb-10">
                 <img class="mb-10 w-40 rounded-xl" src="../../public/img-squirrel/Crystal-Duet.webp" alt="Image de l'artiste">
@@ -99,7 +100,7 @@
             <div class="m-auto">
                 <label class="flex flex-col mb-3">
                     <span class="font-semibold my-1" >Nom :  </span>
-                    <input type="text" class="bg-jaune rounded-xl border-none w-80"><!--v-model="Artistes.Nom" -->
+                    <input type="text" class="bg-jaune rounded-xl border-none w-80">
                 </label>
                 <label class="flex flex-col mb-3">
                     <span class="font-semibold my-1">Catégorie :  </span>
@@ -118,7 +119,8 @@
                 </div>
             </div>
         </div>
-    </section>
+        </section>
+    </div>
 </template>
 
 <script>
@@ -142,7 +144,8 @@ import {
     getDownloadURL,
     uploadString,
     } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js'
-import { preview } from "vite";
+
+// import { preview } from "vite";
 
 
 export default {
@@ -151,13 +154,16 @@ export default {
             imageData:null,
             Artistes: {
                 Nom:null,
-                photo:null,
                 Role:null,
                 Bio:null,
                 Jour:null,
+                photo:null,
             }
         }
     },
+    name: "ModificationView",
+    components: { Bouton2 },
+
     mounted (){
         this.getArtistes();
     },
@@ -175,34 +181,30 @@ export default {
             })
         },
         previewImage: function(event) {
+            //debugger
             this.file = this.$refs.file.files[0];
             this.Artistes.photo = this.file.name;
             var input = event.target;
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                reader.onLoad = (e) => {
+                reader.onload = (e) => {
                     this.imageData = e.target.result;
                 }
                 reader.readAsDataURL(input.files[0]);
             }
-        }
+        },
+        async createArtistes(){
+            const storage = getStorage();
+            const refStorage = ref(storage, 'Artistes/'+this.Artistes.photo);
+            await uploadString(refStorage, this.imageData, 'data_url').then((snapshot) => {
+                console.log('Uploaded a base64 string');
+                const db = getFirestore();
+                const docRef = addDoc(collection(db, 'Artistes'), this.Artistes);
+            });
+            this.$router.push('/Artistes')
+        },
+
     },
-    async createArtistes(){
-        const storage = getStorage();
-        const refStorage = ref(storage, 'Artistes/'+this.Artistes.photo);
-        await uploadString(refStorage, this.imageData, 'data_url').then((snapshot) => {
-            console.log('Uploaded a base64 string');
-            const db = getFirestore();
-            const docRef = addDoc(collection(db, 'Artistes'), this.Artistes);
-        });
-        this.$router.push('/Artistes')
-    },
-
-
-
-
-  name: "App",
-  components: { Bouton2 },
 };
 
 </script>

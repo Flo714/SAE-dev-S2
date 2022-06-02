@@ -69,7 +69,7 @@
                 :Role="artiste.Role"
                 :Bio="artiste.Bio"
                 :Jour="artiste.Jour"
-                Image="/img-squirrel/Annabelle_Rogelet.webp"/>
+                :photo="artiste.photo" />
         </div>
 
     </div>
@@ -94,13 +94,20 @@ import {
     deleteDoc, 
     onSnapshot } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-firestore.js'
 
+import {
+    getStorage,
+    ref,
+    getDownloadURL,
+    uploadString,
+    } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js'
 
 export default {
     data(){ // Données de la vue
           return{                
               nom:null, // Pour la création d'un nouveau pays
               listeArtistesSynchro:[], // Liste des pays synchronisée - collection pays de Firebase
-              filter:''
+              filter:'',
+              listeArtistes:[],
           }
         },
         computed:{
@@ -125,6 +132,7 @@ export default {
         mounted(){ // Montage de la vue
             // Appel de la liste des pays synchronisée
             this.getArtistesSynchro();
+            this.getArtistes();
         },
 
         methods: {
@@ -177,6 +185,31 @@ export default {
                 // Suppression du pays référencé
                 await deleteDoc(docRef);
              },
+
+            async getParticipants(){
+            // Obtenir Firestore
+            const firestore = getFirestore();
+            // Base de données (collection)  document participant
+            const dbPart = collection(firestore, "participant");
+            // Liste des participants triés sur leur nom
+            const q = query(dbPart, orderBy('nom', 'asc'));
+            await onSnapshot(q, (snapshot) => {
+                this.listeParticipant = snapshot.docs.map(doc => (
+                    {id:doc.id, ...doc.data()}
+                ))
+                this.listeParticipant.forEach(function(personne){
+                    const storage = getStorage();
+                    const spaceRef = ref(storage, 'participant/'+personne.photo);
+                    getDownloadURL(spaceRef)
+                    .then((url) => {
+                        personne.photo = url;
+                    })
+                    .catch((error) =>{
+                        console.log('erreur downloadUrl', error);
+                    })
+                })
+            })      
+        },
 
         },
         
