@@ -1,18 +1,14 @@
 <template>
     <h1 class="py-4 md:text-4xl md:pt-12">La Programmation</h1>
     <div class="">
-        <div class="">
-            <h5>Liste des pays</h5>
-        </div>    
-        <hr/>
         <form>
-          <h6>Nouveau pays</h6>
+          <h6>Vendredi</h6>
           <div class="">
             <div class="">
               <span class="">Nom</span>
             </div>
-            <input type="text" class="form-control" required />
-            <button class="" type="button" title="Création">
+            <input type="text" class="form-control" v-model="Nom" required />
+            <button class="" type="button" @click='createProgramme()' title="Création">
               <Modifier />
             </button>
           </div>
@@ -20,37 +16,58 @@
 
         <div class="">
             <table class="">
-                <thead>
-                    <tr>                      
-                        <th scope="col">
-                          <div class="">Liste des Pays actuels</div>                          
-                          <span class="">
-                            <div class="" >
-                                <div class="">
-                                  <span class="" >Filtrage</span>
-                                </div>
-                                <input type="text" class="" />
-                                <button class="" type="button"  title="Filtrage">
-                                  <Search />
-                                </button>
-                              </div>
-                          </span>
-                        </th>
-                    </tr>
-                </thead>
                 <tbody>
-                    <tr>
+                    <tr v-for='Programme in orderByName' :key='Programme.id'>
                         <td>
                           <form>
                             <div class="" >
                               <div class="">
                                 <span class="">Nom</span>
                               </div>
-                              <input type="text" class=""  required />
-                              <button class="" type="button"  title="Modification">
+                              <input type="text" class="w-80" v-model="Programme.Nom"  required />
+                              <button class="" type="button" @click="updateProgramme(Programme)"  title="Modification">
                                 <Modifier />
                               </button>
-                              <button class="" type="button" title="Suppression">
+                              <button class="" type="button" @click="deleteProgramme(Programme)" title="Suppression">
+                                <Delete />
+                              </button>
+                            </div>
+                          </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="">
+        <form>
+          <h6>Vendredi</h6>
+          <div class="">
+            <div class="">
+              <span class="">Nom</span>
+            </div>
+            <input type="text" class="form-control" v-model="Nom" required />
+            <button class="" type="button" @click='createProgrammeS()' title="Création">
+              <Modifier />
+            </button>
+          </div>
+        </form>
+
+        <div class="">
+            <table class="">
+                <tbody>
+                    <tr v-for='Programme in orderByName' :key='Programme.id'>
+                        <td>
+                          <form>
+                            <div class="" >
+                              <div class="">
+                                <span class="">Nom</span>
+                              </div>
+                              <input type="text" class="w-80" v-model="ProgrammeS.Nom"  required />
+                              <button class="" type="button" @click="updateProgrammeS(ProgrammeS)"  title="Modification">
+                                <Modifier />
+                              </button>
+                              <button class="" type="button" @click="deleteProgrammeS(ProgrammeS)" title="Suppression">
                                 <Delete />
                               </button>
                             </div>
@@ -121,13 +138,13 @@ export default {
         },
 
         computed:{
-            // orderByName:function(){
-            //     return this.listeProgrammeSynchro.sort(function(a, b){
-            //       if(a.Heure < b.Heure)  return -1;
-            //       if(a.Heure > b.Heure)  return 1;
-            //       return 0
-            //     })
-            // },
+            orderByName:function(){
+                return this.listeProgrammeSynchro.sort(function(a, b){
+                  if(a.Nom < b.Nom)  return -1;
+                  if(a.Nom > b.Nom)  return 1;
+                  return 0
+                })
+            },
             // filterByName:function(){
             //     if(this.filter.length > 0){
             //         let filter = this.filter.toLowerCase();
@@ -142,9 +159,11 @@ export default {
         mounted(){ // Montage de la vue
             // Appel de la liste des pays synchronisée
             this.getProgrammeSynchro();
+            this.getProgrammeSSynchro();
         },
 
         methods: {
+      // Liste pour le programme du vendredi
             async getProgrammeSynchro(){
                 // Obtenir Firestore
                 const firestore = getFirestore();
@@ -156,42 +175,52 @@ export default {
                 })
             },
 
-            // async createProgramme(){
-            //     // Obtenir Firestore
-            //     const firestore = getFirestore();
-            //     // Base de données (collection)  document pays
-            //     const dbProgramme= collection(firestore, "Programme");
-            //     // On passe en paramètre format json
-            //     // Les champs à mettre à jour
-            //     // Sauf le id qui est créé automatiquement
-            //     const docRef = await addDoc(dbProgramme,{
-            //         Heure: this.Heure,
-            //     })
-            //     console.log('document créé avec le id : ', docRef.id);
-            //  },
-            // async updateProgramme(Programme){
-            //     // Obtenir Firestore
-            //     const firestore = getFirestore();
-            //     // Base de données (collection)  document pays
-            //     // Reference du pays à modifier
-            //     const docRef = doc(firestore, "Programme", Programme.id);
-            //     // On passe en paramètre format json
-            //     // Les champs à mettre à jour
-            //     await updateDoc(docRef, {
-            //         Heure: Programme.Heure
-            //     }) 
-            //  },
+            async createProgramme(){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                const dbProgramme= collection(firestore, "Programme");
+                // On passe en paramètre format json
+                // Les champs à mettre à jour
+                // Sauf le id qui est créé automatiquement
+                const docRef = await addDoc(dbProgramme,{
+                    Nom: this.Nom,
+                })
+                console.log('document créé avec le id : ', docRef.id);
+             },
+            async updateProgramme(Programme){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                // Reference du pays à modifier
+                const docRef = doc(firestore, "Programme", Programme.id);
+                // On passe en paramètre format json
+                // Les champs à mettre à jour
+                await updateDoc(docRef, {
+                    Nom: Programme.Nom
+                }) 
+             },
 
-            // async deleteProgramme(Programme){
-            //     // Obtenir Firestore
-            //     const firestore = getFirestore();
-            //     // Base de données (collection)  document pays
-            //     // Reference du pays à supprimer
-            //     const docRef = doc(firestore, "Programme", Programme.id);
-            //     // Suppression du pays référencé
-            //     await deleteDoc(docRef);
-            //  },
-
+            async deleteProgramme(Programme){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                // Reference du pays à supprimer
+                const docRef = doc(firestore, "Programme", Programme.id);
+                // Suppression du pays référencé
+                await deleteDoc(docRef);
+             },
+          // Liste pour le programme du Samedi
+              async getProgrammeSSynchro(){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                const dbProgrammeS= collection(firestore, "ProgrammeS");
+                const query = await onSnapshot(dbProgrammeS, (snapshot) =>{
+                    this.listeProgrammeSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()})); 
+                    console.log('listeProgrammeSynchro', this.listeProgrammeSynchro);
+                })
+            },
         },
         name: "Programme",
         components: { Modifier, Search, Delete},
