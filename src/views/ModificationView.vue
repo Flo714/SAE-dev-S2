@@ -1,5 +1,5 @@
 <template>
-<div>
+    <div>
         <h1 class="py-8 md:text-4xl md:pt-8 lg:text-5xl">Modifier les artistes</h1>
 
 
@@ -84,8 +84,9 @@
                 </div>
 
             </div>
-        </form>        
-        </div>
+        </form>    
+        </div>    
+    </div>
 </template>
 <script>
 import { 
@@ -140,6 +141,26 @@ console.log("id Artistes", this.$route.params.id);
                 this.listeArtistes = snapshot.docs.map(doc => (
                     {id:doc.id, ...doc.data()}
                 ))
+            })
+        },
+        async getArtistes(id){
+            const firestore = getFirestore();
+            const docRef = doc(firestore, "Artistes", id);
+            this.refArtistes = await getDoc(docRef);
+            if(this.refArtistes.exists()){
+                this.Artistes = this.refArtistes.data();
+                this.photoActuelle = this.Artistes.photo;
+            }else{
+                this.console.log("Artistes inexistant");
+            }
+            const storage = getStorage();
+            const spaceRef = ref(storage, 'Artistes/'+this.Artistes.photo);
+            getDownloadURL(spaceRef)
+                .then((url) => {
+                    this.imageData = url;
+            })
+            .catch((error) =>{
+                console.log('erreur downloadUrl', error);
             })
         },
     }
