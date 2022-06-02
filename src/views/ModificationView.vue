@@ -130,21 +130,9 @@ export default {
     components: { Bouton2 },
 
     mounted(){
-console.log("id Artistes", this.$route.params.id);
         this.getArtistes(this.$route.params.id);
-        this.getArtistes();
     },
     methods : {
-        async getArtistes (){
-            const firestore = getFirestore();
-            const dbArtistes = collection(firestore, "Artistes");
-            const q = query(dbArtistes, orderBy('Nom','asc'));
-            await onSnapshot(q, (snapshot) => {
-                this.listeArtistes = snapshot.docs.map(doc => (
-                    {id:doc.id, ...doc.data()}
-                ))
-            })
-        },
         async getArtistes(id){
             const firestore = getFirestore();
             const docRef = doc(firestore, "Artistes", id);
@@ -153,7 +141,7 @@ console.log("id Artistes", this.$route.params.id);
                 this.Artistes = this.refArtistes.data();
                 this.photoActuelle = this.Artistes.photo;
             }else{
-                this.console.log("Artistes inexistant");
+                // this.console.log("Artistes inexistant");
             }
             const storage = getStorage();
             const spaceRef = ref(storage, 'Artistes/'+this.Artistes.photo);
@@ -162,7 +150,7 @@ console.log("id Artistes", this.$route.params.id);
                     this.imageData = url;
             })
             .catch((error) =>{
-                console.log('erreur downloadUrl', error);
+                // console.log('erreur downloadUrl', error);
             })
         },
         previewImage: function(event) {
@@ -185,7 +173,7 @@ console.log("id Artistes", this.$route.params.id);
                 deleteObject(docRef);
                 docRef = ref(storage, 'Artistes/'+this.Artistes.photo);
                 await uploadString(docRef, this.imageData, 'data_url').then((snapshot) => {
-                    console.log('Uploaded a base64 string', this.Artistes.photo);                
+                    // console.log('Uploaded a base64 string', this.Artistes.photo);                
                 });                   
             }
             const firestore = getFirestore();

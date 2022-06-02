@@ -44,11 +44,13 @@
                                 <span class="">Nom</span>
                               </div>
                               <input type="text" class="" v-model="Artistes.Nom" required />
-                              <RouterLink to="/Modification">
-                                  <button class="" type="button" @click.prevent="updateArtistes(Artistes)" title="Modification">
-                                    <Modifier />
-                                  </button>
-                              </RouterLink>
+                              <span title="Modifier un Artiste">
+                                <RouterLink :to="{ name:'ModificationView', params: {id: Artistes.id}}">
+                                    <button class="" type="button" @click.prevent="updateArtistes(Artistes)" title="Modification">
+                                      <Modifier />
+                                    </button>
+                                </RouterLink>
+                              </span>
                               <button class="" type="button" @click.prevent="deleteArtistes(Artistes)" title="Suppression">
                                 <Delete />
                               </button>
