@@ -46,7 +46,7 @@
             <div class="">
               <span class="">Nom</span>
             </div>
-            <input type="text" class="form-control" v-model="Nom" required />
+            <input type="text" class="form-control" v-model="NomS" required />
             <button class="" type="button" @click='createProgrammeS()' title="Création">
               <Modifier />
             </button>
@@ -56,14 +56,14 @@
         <div class="">
             <table class="">
                 <tbody>
-                    <tr v-for='ProgrammeS in orderByName' :key='ProgrammeS.id'>
+                    <tr v-for='ProgrammeS in orderByName2' :key='ProgrammeS.id'>
                         <td>
                           <form>
                             <div class="" >
                               <div class="">
                                 <span class="">Nom</span>
                               </div>
-                              <input type="text" class="w-80" v-model="ProgrammeS.Nom"  required />
+                              <input type="text" class="w-80" v-model="ProgrammeS.NomS"  required />
                               <button class="" type="button" @click="updateProgrammeS(ProgrammeS)"  title="Modification">
                                 <Modifier />
                               </button>
@@ -152,8 +152,8 @@ export default {
           // Ordre Liste Samedi
             orderByName2:function(){
                 return this.listeProgrammeSSynchro.sort(function(a, b){
-                  if(a.Nom < b.Nom)  return -1;
-                  if(a.Nom > b.Nom)  return 1;
+                  if(a.NomS < b.NomS)  return -1;
+                  if(a.NomS > b.NomS)  return 1;
                   return 0
                 });
             },
@@ -168,7 +168,10 @@ export default {
 
 
         methods: {
+
       // Liste pour le programme du vendredi
+
+
             async getProgrammeSynchro(){
                 // Obtenir Firestore
                 const firestore = getFirestore();
@@ -217,9 +220,9 @@ export default {
              },
 
 
-
-
           // Liste pour le programme du Samedi
+
+
               async getProgrammeSSynchro(){
                 // Obtenir Firestore
                 const firestore = getFirestore();
@@ -239,7 +242,7 @@ export default {
                 // Les champs à mettre à jour
                 // Sauf le id qui est créé automatiquement
                 const docRef = await addDoc(dbProgrammeS,{
-                    Nom: this.Nom,
+                    NomS: this.NomS,
                 })
                 console.log('document créé avec le id : ', docRef.id);
              },
@@ -252,7 +255,7 @@ export default {
                 // On passe en paramètre format json
                 // Les champs à mettre à jour
                 await updateDoc(docRef, {
-                    Nom: ProgrammeS.Nom
+                    NomS: ProgrammeS.NomS
                 }) 
              },
 
