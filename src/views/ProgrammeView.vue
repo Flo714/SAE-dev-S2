@@ -173,7 +173,8 @@ export default {
           return{                
               Nom:null,
               listeProgrammeSynchro:[],
-              listeProgrammeSSynchro:[]
+              listeProgrammeSSynchro:[],
+              listeProgrammeDSynchro:[],
               
           }
         },
@@ -196,12 +197,23 @@ export default {
                   return 0
                 });
             },
+
+
+          // Ordre Liste Dimanche
+            orderByName3:function(){
+                return this.listeProgrammeDSynchro.sort(function(a, b){
+                  if(a.NomD < b.NomD)  return -1;
+                  if(a.NomD > b.NomD)  return 1;
+                  return 0
+                });
+            },
           },
 
         mounted(){ // Montage de la vue
-            // Appel de la liste des pays synchronisée
+            // Appel des liste des Programmes synchronisée
             this.getProgrammeSynchro();
             this.getProgrammeSSynchro();
+            this.getProgrammeDSynchro();
         },
 
 
@@ -304,6 +316,56 @@ export default {
                 // Base de données (collection)  document pays
                 // Reference du pays à supprimer
                 const docRef = doc(firestore, "ProgrammeS", ProgrammeS.id);
+                // Suppression du pays référencé
+                await deleteDoc(docRef);
+             },
+
+
+            // Liste pour le programme du Dimanche
+
+
+              async getProgrammeDSynchro(){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                const dbProgrammeD= collection(firestore, "ProgrammeD");
+                const query = await onSnapshot(dbProgrammeD, (snapshot) =>{
+                    this.listeProgrammeDSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()})); 
+                    console.log('listeProgrammeDSynchro', this.listeProgrammeDSynchro);
+                })
+            },
+              async createProgrammeD(){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                const dbProgrammeD= collection(firestore, "ProgrammeD");
+                // On passe en paramètre format json
+                // Les champs à mettre à jour
+                // Sauf le id qui est créé automatiquement
+                const docRef = await addDoc(dbProgrammeD,{
+                    NomD: this.NomD,
+                })
+                console.log('document créé avec le id : ', docRef.id);
+             },
+            async updateProgrammeD(ProgrammeD){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                // Reference du pays à modifier
+                const docRef = doc(firestore, "ProgrammeD", ProgrammeD.id);
+                // On passe en paramètre format json
+                // Les champs à mettre à jour
+                await updateDoc(docRef, {
+                    NomD: ProgrammeD.NomD
+                }) 
+             },
+
+            async deleteProgrammeD(ProgrammeD){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                // Reference du pays à supprimer
+                const docRef = doc(firestore, "ProgrammeD", ProgrammeD.id);
                 // Suppression du pays référencé
                 await deleteDoc(docRef);
              },
