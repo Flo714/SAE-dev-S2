@@ -1,21 +1,18 @@
 <template>
     <h1 class="py-8 md:text-4xl md:pt-12 lg:text-5xl">Les artistes</h1>
 
-    <div class="">
-        <div class="">
-            <h5>Liste des Artistes</h5>
-        </div>    
-        <hr/>
+    <div class="">   
         <form>
-          <h6>Nouveau pays</h6>
           <div class="">
             <div class="">
-              <span class="">Nom</span>
+              <span class="">Créer un artiste</span>
             </div>
-            <input type="text" class="" v-model="Nom" required />
-            <RouterLink to="/Creation"><button class="" type="button" @click='createArtistes()' title="Création">
-              <Modifier />
-            </button></RouterLink>
+            <RouterLink to="/Creation">
+              <div class="flex justify-end mr-40 my-6">
+                <Bouton @click='createArtistes()' title="Création"
+                Nom="Créer"/>
+              </div>
+            </RouterLink>
           </div>
         </form>
 
@@ -48,9 +45,11 @@
                                 <span class="">Nom</span>
                               </div>
                               <input type="text" class="" v-model="Artistes.Nom" required />
-                              <RouterLink to="/Modification"><button class="" type="button" @click.prevent="updateArtistes(Artistes)" title="Modification">
-                                <Modifier />
-                              </button></RouterLink>
+                              <RouterLink to="/Modification">
+                                <button class="" type="button" @click.prevent="updateArtistes(Artistes)" title="Modification">
+                                  <Modifier />
+                                </button>
+                              </RouterLink>
                               <button class="" type="button" @click.prevent="deleteArtistes(Artistes)" title="Suppression">
                                 <Delete />
                               </button>
@@ -79,6 +78,7 @@
 import { onMounted } from '@vue/runtime-core';
 
 import Card from "../../src/components/CardView.vue"
+import Bouton from "../../src/components/BoutonView.vue"
 import Search from "../../src/components/icons/SearchView.vue"
 import Modifier from "../../src/components/icons/ModifierView.vue"
 import Delete from "../../src/components/icons/DeleteView.vue"
@@ -192,6 +192,6 @@ export default {
         },
         
   name: "App",
-  components: { Card, Search, Modifier, Delete },
+  components: { Card, Search, Modifier, Delete, Bouton },
 };
 </script>

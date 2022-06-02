@@ -165,6 +165,33 @@ console.log("id Artistes", this.$route.params.id);
                 console.log('erreur downloadUrl', error);
             })
         },
+        previewImage: function(event) {
+            this.file = this.$refs.file.files[0];
+            this.Artistes.photo = this.file.name;
+            this.imgModifiee = true;
+            var input = event.target;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = (e) => {
+                    this.imageData = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        },
+        async updateArtistes(){
+            if(this.imgModifiee){
+                const storage = getStorage();
+                let docRef = ref(storage, 'Artistes/'+this.photoActuelle);
+                deleteObject(docRef);
+                docRef = ref(storage, 'Artistes/'+this.Artistes.photo);
+                await uploadString(docRef, this.imageData, 'data_url').then((snapshot) => {
+                    console.log('Uploaded a base64 string', this.Artistes.photo);                
+                });                   
+            }
+            const firestore = getFirestore();
+            await updateDoc(doc(firestore, "Artistes", this.$route.params.id), this.Artistes);
+            this.$router.push('/Artistes');       
+        }
     }
 }
 
