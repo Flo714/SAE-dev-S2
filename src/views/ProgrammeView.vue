@@ -41,7 +41,7 @@
     </div>
     <div class="">
         <form>
-          <h6>Vendredi</h6>
+          <h6>Samedi</h6>
           <div class="">
             <div class="">
               <span class="">Nom</span>
@@ -56,7 +56,7 @@
         <div class="">
             <table class="">
                 <tbody>
-                    <tr v-for='Programme in orderByName' :key='Programme.id'>
+                    <tr v-for='ProgrammeS in orderByName' :key='ProgrammeS.id'>
                         <td>
                           <form>
                             <div class="" >
@@ -133,34 +133,39 @@ export default {
     data(){ // Données de la vue
           return{                
               Nom:null,
-              listeProgrammeSynchro:[]
+              listeProgrammeSynchro:[],
+              listeProgrammeSSynchro:[]
+              
           }
         },
 
         computed:{
+          // Ordre Liste Vendredi
             orderByName:function(){
                 return this.listeProgrammeSynchro.sort(function(a, b){
                   if(a.Nom < b.Nom)  return -1;
                   if(a.Nom > b.Nom)  return 1;
                   return 0
-                })
+                });
             },
-            // filterByName:function(){
-            //     if(this.filter.length > 0){
-            //         let filter = this.filter.toLowerCase();
-            //         return this.orderByName.filter(function(Programme){
-            //             return Programme.Heure.toLowerCase().includes(filter);
-            //         })
-            //     }else{
-            //         return this.orderByName;
-            //     }
-            // }
-        },
+
+          // Ordre Liste Samedi
+            orderByName2:function(){
+                return this.listeProgrammeSSynchro.sort(function(a, b){
+                  if(a.Nom < b.Nom)  return -1;
+                  if(a.Nom > b.Nom)  return 1;
+                  return 0
+                });
+            },
+          },
+
         mounted(){ // Montage de la vue
             // Appel de la liste des pays synchronisée
             this.getProgrammeSynchro();
             this.getProgrammeSSynchro();
         },
+
+
 
         methods: {
       // Liste pour le programme du vendredi
@@ -210,6 +215,10 @@ export default {
                 // Suppression du pays référencé
                 await deleteDoc(docRef);
              },
+
+
+
+
           // Liste pour le programme du Samedi
               async getProgrammeSSynchro(){
                 // Obtenir Firestore
@@ -217,10 +226,45 @@ export default {
                 // Base de données (collection)  document pays
                 const dbProgrammeS= collection(firestore, "ProgrammeS");
                 const query = await onSnapshot(dbProgrammeS, (snapshot) =>{
-                    this.listeProgrammeSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()})); 
-                    console.log('listeProgrammeSynchro', this.listeProgrammeSynchro);
+                    this.listeProgrammeSSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()})); 
+                    console.log('listeProgrammeSSynchro', this.listeProgrammeSSynchro);
                 })
             },
+              async createProgrammeS(){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                const dbProgrammeS= collection(firestore, "ProgrammeS");
+                // On passe en paramètre format json
+                // Les champs à mettre à jour
+                // Sauf le id qui est créé automatiquement
+                const docRef = await addDoc(dbProgrammeS,{
+                    Nom: this.Nom,
+                })
+                console.log('document créé avec le id : ', docRef.id);
+             },
+            async updateProgrammeS(ProgrammeS){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                // Reference du pays à modifier
+                const docRef = doc(firestore, "ProgrammeS", ProgrammeS.id);
+                // On passe en paramètre format json
+                // Les champs à mettre à jour
+                await updateDoc(docRef, {
+                    Nom: ProgrammeS.Nom
+                }) 
+             },
+
+            async deleteProgrammeS(ProgrammeS){
+                // Obtenir Firestore
+                const firestore = getFirestore();
+                // Base de données (collection)  document pays
+                // Reference du pays à supprimer
+                const docRef = doc(firestore, "ProgrammeS", ProgrammeS.id);
+                // Suppression du pays référencé
+                await deleteDoc(docRef);
+             },
         },
         name: "Programme",
         components: { Modifier, Search, Delete},
