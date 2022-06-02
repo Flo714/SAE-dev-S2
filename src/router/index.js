@@ -10,6 +10,7 @@ import styleguideView from '../views/styleguideView.vue'
 import Page404View from '../views/404View.vue'
 import CreationView from '../views/CreationView.vue'
 import ModificationView from '../views/ModificationView.vue'
+import DeleteView from '../views/DeleteView.vue'
 
 
 
@@ -27,6 +28,7 @@ const router = createRouter({
     { path: '/:pathMatch(.*)*', name: 'Page404View', component: Page404View },
     { path: '/Creation', name: 'CreationView', component: CreationView },
     { path: '/Modification', name: 'ModificationView', component: ModificationView },
+    { path: '/Delete', name: 'DeleteView', component: DeleteView },
     // ici les autres routes
   ]
 })

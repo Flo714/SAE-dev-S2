@@ -44,7 +44,11 @@
                                 <span class="">Nom</span>
                               </div>
                               <input type="text" class="" v-model="Artistes.Nom" required />
-
+                              <RouterLink to="/Modification">
+                                  <button class="" type="button" @click.prevent="updateArtistes(Artistes)" title="Modification">
+                                    <Modifier />
+                                  </button>
+                              </RouterLink>
                               <button class="" type="button" @click.prevent="deleteArtistes(Artistes)" title="Suppression">
                                 <Delete />
                               </button>
@@ -63,7 +67,8 @@
                 :Role="artiste.Role"
                 :Bio="artiste.Bio"
                 :Jour="artiste.Jour"
-                :photo="artiste.photo" />
+                :photo="artiste.photo" 
+                />
         </div>
 
     </div>
