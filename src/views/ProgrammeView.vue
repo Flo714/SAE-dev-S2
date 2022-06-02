@@ -2,15 +2,15 @@
     <h1 class="py-4 md:text-4xl md:pt-12">La Programmation</h1>
     <div class="">
         <form>
-          <h6>Vendredi</h6>
-          <div class="">
-            <div class="">
-              <span class="">Nom</span>
+        <h2 class="my-4 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Vendredi 7 Août 2022</span></h2>
+          <div class="flex justify-end mr-40">
+            <div>
+              <h3>Mettre une nouvelle Heure</h3>
+              <input type="text" class="form-control" v-model="Nom" required />
+              <button class="" type="button" @click='createProgramme()' title="Création">
+                <Modifier />
+              </button>
             </div>
-            <input type="text" class="form-control" v-model="Nom" required />
-            <button class="" type="button" @click='createProgramme()' title="Création">
-              <Modifier />
-            </button>
           </div>
         </form>
 
@@ -198,7 +198,6 @@ export default {
                 });
             },
 
-
           // Ordre Liste Dimanche
             orderByName3:function(){
                 return this.listeProgrammeDSynchro.sort(function(a, b){
@@ -222,7 +221,6 @@ export default {
 
       // Liste pour le programme du vendredi
 
-
             async getProgrammeSynchro(){
                 // Obtenir Firestore
                 const firestore = getFirestore();
@@ -232,8 +230,7 @@ export default {
                     this.listeProgrammeSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()})); 
                     console.log('listeProgrammeSynchro', this.listeProgrammeSynchro);
                 })
-            },
-
+             },
             async createProgramme(){
                 // Obtenir Firestore
                 const firestore = getFirestore();
@@ -259,7 +256,6 @@ export default {
                     Nom: Programme.Nom
                 }) 
              },
-
             async deleteProgramme(Programme){
                 // Obtenir Firestore
                 const firestore = getFirestore();
@@ -273,8 +269,7 @@ export default {
 
           // Liste pour le programme du Samedi
 
-
-              async getProgrammeSSynchro(){
+            async getProgrammeSSynchro(){
                 // Obtenir Firestore
                 const firestore = getFirestore();
                 // Base de données (collection)  document pays
@@ -283,8 +278,8 @@ export default {
                     this.listeProgrammeSSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()})); 
                     console.log('listeProgrammeSSynchro', this.listeProgrammeSSynchro);
                 })
-            },
-              async createProgrammeS(){
+             },
+            async createProgrammeS(){
                 // Obtenir Firestore
                 const firestore = getFirestore();
                 // Base de données (collection)  document pays
@@ -309,7 +304,6 @@ export default {
                     NomS: ProgrammeS.NomS
                 }) 
              },
-
             async deleteProgrammeS(ProgrammeS){
                 // Obtenir Firestore
                 const firestore = getFirestore();
@@ -323,8 +317,7 @@ export default {
 
             // Liste pour le programme du Dimanche
 
-
-              async getProgrammeDSynchro(){
+            async getProgrammeDSynchro(){
                 // Obtenir Firestore
                 const firestore = getFirestore();
                 // Base de données (collection)  document pays
@@ -333,8 +326,8 @@ export default {
                     this.listeProgrammeDSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()})); 
                     console.log('listeProgrammeDSynchro', this.listeProgrammeDSynchro);
                 })
-            },
-              async createProgrammeD(){
+             },
+            async createProgrammeD(){
                 // Obtenir Firestore
                 const firestore = getFirestore();
                 // Base de données (collection)  document pays
@@ -359,7 +352,6 @@ export default {
                     NomD: ProgrammeD.NomD
                 }) 
              },
-
             async deleteProgrammeD(ProgrammeD){
                 // Obtenir Firestore
                 const firestore = getFirestore();
