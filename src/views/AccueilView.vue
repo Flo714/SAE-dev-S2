@@ -26,40 +26,10 @@
     </section>
     <section>
         <h2 class="md:text-2xl lg:text-3xl">Programme</h2>
-        <div class="flex justify-end mr-4 xl:mr-24 my-12">
+        <div class="flex justify-end mr-4 xl:mr-24 py-12">
             <RouterLink to="/Programme"><Bouton Nom="Voir le Programme en entier"/></RouterLink>
         </div>
        
-    </section>
-    <section>
-        <h2 class="md:text-2xl lg:text-3xl">Les artistes</h2>
-        <p class="my-4 mr-10 responsivetext">Voici quelques artistes qui seront présents lors du Tradi’Val</p>
-        <div class="grid grid-flow-row-dense grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-8 py-10">
-            <div>
-                <Card class=""
-                    Nom="Annabelle Rogelet"
-                    Role="Violoncelliste"
-                    Bio="Joue dans plusieurs groupes"
-                    Jour="Samedi et dimanche"
-                    Image="/img-squirrel/Annabelle_Rogelet.webp"/>
-            </div>
-            <div>
-                <Card
-                    Nom="Louise Jallu"
-                    Role="Bandonéoniste"
-                    Bio="Nominé aux Victoires du Jazz"
-                    Jour="Samedi et dimanche"
-                    Image="/img-squirrel/Louise_Jallu.webp"/>
-            </div>
-            <div>
-                <Card
-                    Nom="Les Oiseaux de Passage"
-                    Role="Pop, Jazz ..."
-                    Bio="Reprises de chansons de Georges Brassens"
-                    Jour="Samedi"
-                    Image="/img-squirrel/Les_oiseaux_de_passage.webp"/>
-            </div>
-        </div>
     </section>
 </template>
 <script>
