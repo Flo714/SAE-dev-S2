@@ -10,19 +10,28 @@
     </div>
     <div>
         <p class="text-[0.600rem] flex justify-end">{{ Jour }}</p>
+        <RouterLink :to="{ name:'ModificationView', params: {id}}">
+            <button class="" type="button" title="Modification">
+              <Modifier />
+            </button>
+        </RouterLink>
     </div>
     
 </div>
 </template>
 <script>
+import Modifier from "../../src/components/icons/ModifierView.vue"
 
 export default {
+    components: {Modifier },
+
     props : {
         Nom: String,
         Role: String,
         Bio: String,
         Jour: String,
         photo: String,
+        id:String,
     },
 };
 </script>

@@ -45,17 +45,7 @@
                               </div>
                               <input type="text" class="" v-model="Artistes.Nom" required />
                               <span title="Modifier un Artiste">
-                                <RouterLink :to="{ name:'ModificationView', params: {id: Artistes.id}}">
-                                    <button class="" type="button" title="Modification">
-                                      <Modifier />
-                                    </button>
-                                </RouterLink>
                               </span>
-                              <RouterLink :to="{ name:'DeleteView', params: { id: Artistes.id}}">
-                                <button class="" type="button" title="Suppression">
-                                  <Delete />
-                                </button>
-                              </RouterLink>
                             </div>
                           </form>
                         </td>
@@ -72,6 +62,7 @@
                 :Bio="artiste.Bio"
                 :Jour="artiste.Jour"
                 :photo="artiste.photo" 
+                :id="artiste.id"
                 />
         </div>
 
