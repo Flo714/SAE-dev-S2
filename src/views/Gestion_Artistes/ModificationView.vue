@@ -76,6 +76,7 @@ import {
     ref, 
     getDownloadURL, 
     uploadString,
+    deleteObject,
 } from 'https://www.gstatic.com/firebasejs/9.7.0/firebase-storage.js'
 
 export default {
@@ -98,7 +99,6 @@ export default {
     components: { Bouton2 },
 
     mounted(){
-console.log("id Artistes", this.$route.params.id);
         this.getArtistes(this.$route.params.id);
     },
     methods : {
@@ -139,6 +139,7 @@ console.log("id Artistes", this.$route.params.id);
             if(this.imgModifiee){
                 const storage = getStorage();
                 let docRef = ref(storage, 'Artistes/'+this.photoActuelle);
+                console.log(docRef);
                 deleteObject(docRef);
                 docRef = ref(storage, 'Artistes/'+this.Artistes.photo);
                 await uploadString(docRef, this.imageData, 'data_url').then((snapshot) => {

@@ -22,7 +22,7 @@
 import Bouton from "../../src/components/BoutonView.vue"
 
 export default {
-  name: "App",
+  name: "Concert",
   components: { Bouton },
 };
 </script>
