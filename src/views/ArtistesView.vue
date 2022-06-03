@@ -35,22 +35,6 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr v-for='Artistes in filterByName' :key='Artistes.id'>
-                        <td>
-                          <form>
-                            <div class="">
-                              <div class="">
-                                <span class="">Nom</span>
-                              </div>
-                              <input type="text" class="" v-model="Artistes.Nom" required />
-                              <span title="Modifier un Artiste">
-                              </span>
-                            </div>
-                          </form>
-                        </td>
-                    </tr>
-                </tbody>
             </table>
         </div>
     </div>
