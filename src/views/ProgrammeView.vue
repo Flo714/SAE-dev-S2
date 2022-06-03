@@ -9,9 +9,9 @@
                       <tr v-for='Programme in orderByName' :key='Programme.id'>
                           <td class="">
                             <form>
-                              <div class="flex" >
+                              <div class="" >
                                 <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="Programme.Nom"  required />
-                                <div class="mt-2">
+                                <div class="mt-2 flex gap-4">
                                   <button class="" type="button" @click="updateProgramme(Programme)"  title="Modification">
                                     <Modifier />
                                   </button>
@@ -48,14 +48,16 @@
                       <tr v-for='ProgrammeS in orderByName2' :key='ProgrammeS.id'>
                           <td>
                             <form>
-                              <div class="" >
+                              <div class="flex gap-4" >
                                 <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeS.NomS"  required />
-                                <button class="" type="button" @click="updateProgrammeS(ProgrammeS)"  title="Modification">
-                                  <Modifier />
-                                </button>
-                                <button class="" type="button" @click="deleteProgrammeS(ProgrammeS)" title="Suppression">
-                                  <Delete />
-                                </button>
+                                <div class="mt-1 flex gap-4">
+                                  <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="updateProgrammeS(ProgrammeS)"  title="Modification">
+                                    <Modifier />
+                                  </button>
+                                  <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="deleteProgrammeS(ProgrammeS)" title="Suppression">
+                                    <Delete />
+                                  </button>
+                                </div>
                               </div>
                             </form>
                           </td>
@@ -85,11 +87,11 @@
                         <td>
                           <div class="flex gap-4" >
                             <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeD.NomD"  required />
-                            <div class="mt-1 flex gap-2">
-                              <button class="" type="button" @click="updateProgrammeD(ProgrammeD)"  title="Modification">
+                            <div class="mt-1 flex gap-4">
+                              <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="updateProgrammeD(ProgrammeD)"  title="Modification">
                                 <Modifier />
                               </button>
-                              <button class="" type="button" @click="deleteProgrammeD(ProgrammeD)" title="Suppression">
+                              <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="deleteProgrammeD(ProgrammeD)" title="Suppression">
                                 <Delete />
                               </button>
                             </div>
