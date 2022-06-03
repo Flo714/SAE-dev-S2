@@ -28,9 +28,9 @@
           </div>
         <form>
             <div class="flex justify-end mr-40">
-              <div>
-                <h3>Mettre une nouvelle Heure</h3>
-                <input type="text" class="form-control" v-model="Nom" required />
+              <div class="bg-marron p-2 rounded-md">
+                <h3 class="mb-4">Mettre une nouvelle Heure</h3>
+                <input type="text" class="bg-jaune border-none rounded-xl" v-model="Nom" required />
                 <button class="" type="button" @click='createProgramme()' title="Création">
                   <Modifier />
                 </button>
@@ -65,9 +65,9 @@
           </div>
           <form>
             <div class="flex justify-end mr-40">
-              <div>
+              <div class="bg-marron p-2 rounded-md">
                 <h3>Mettre une nouvelle Heure</h3>
-                <input type="text" class="form-control" v-model="NomS" required />
+                <input type="text" class="bg-jaune border-none rounded-xl" v-model="NomS" required />
                 <button class="" type="button" @click='createProgrammeS()' title="Création">
                   <Modifier />
                 </button>
@@ -100,9 +100,9 @@
             </table>
           <form>
             <div class="flex justify-end mr-40">
-              <div>
+              <div class="bg-marron p-2 rounded-md">
                 <h3>Mettre une nouvelle Heure</h3>
-                <input type="text" class="form-control" v-model="NomD" required />
+                <input type="text" class="bg-jaune border-none rounded-xl" v-model="NomD" required />
                 <button class="" type="button" @click='createProgrammeD()' title="Création">
                   <Modifier />
                 </button>
