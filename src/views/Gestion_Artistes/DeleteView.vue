@@ -38,7 +38,7 @@
                                 class="bg-jaune rounded-xl border-none" type="text" placeholder="Les disponibilité" required>
                         </label>
                         <div class="mb-28 ">
-                            <div class="absolute bg-jaune rounded-xl p-2 left-[30%]">
+                            <div class="absolute bg-marron+ rounded-xl p-2 left-[30%]">
                                 <h3 class="text-xl text-center ">
                                     Attention vous allez supprimer ce participant, cette action est irréversible !!
                                 </h3>
