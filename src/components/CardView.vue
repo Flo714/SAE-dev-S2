@@ -15,15 +15,21 @@
               <Modifier />
             </button>
         </RouterLink>
+        <RouterLink :to="{ name:'DeleteView', params: {id}}">
+            <button class="" type="button" title="Suppression">
+              <Delete />
+            </button>
+        </RouterLink>
     </div>
     
 </div>
 </template>
 <script>
 import Modifier from "../../src/components/icons/ModifierView.vue"
+import Delete from "../../src/components/icons/DeleteView.vue"
 
 export default {
-    components: {Modifier },
+    components: {Modifier, Delete },
 
     props : {
         Nom: String,
