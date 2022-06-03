@@ -22,11 +22,11 @@
                     <tr>                      
                         <th scope="col">                        
                           <span class="">
-                            <div class="flex gap-6 mr-20 bg-marron dark:bg-Dark-marron rounded-lg p-2" >
+                            <div class="flex gap-6 lg:mr-20 bg-marron dark:bg-Dark-marron rounded-lg p-2" >
                                 <div class="mt-1 ml-2">
-                                  <span class="text-xl" >Filtre</span>
+                                  <span class=" text-lg lg:text-xl" >Filtre</span>
                                 </div>
-                                <input type="text" class="bg-jaune dark:bg-marron border-marron+ rounded-lg" v-model='filter'/>
+                                <input type="text" class="bg-jaune dark:bg-marron border-marron+ rounded-lg w-40 sm:w-full" v-model='filter'/>
                             </div>
                           </span>
                         </th>
