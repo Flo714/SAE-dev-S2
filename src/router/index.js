@@ -8,6 +8,10 @@ import ConcertView from '../views/ConcertView.vue'
 import MentionlegalView from '../views/MentionlegalView.vue'
 import styleguideView from '../views/styleguideView.vue'
 import Page404View from '../views/404View.vue'
+
+
+    //Gestion Artistes
+
 import CreationView from '../views/Gestion_Artistes/CreationView.vue'
 import ModificationView from '../views/Gestion_Artistes/ModificationView.vue'
 import DeleteView from '../views/Gestion_Artistes/DeleteView.vue'
@@ -25,11 +29,18 @@ const router = createRouter({
     { path: '/Concert', name: 'ConcertView', component: ConcertView },
     { path: '/MentionLegal', name: 'MentionLegalView', component: MentionlegalView },
     { path: '/style-guide', name: 'styleguideView', component: styleguideView },
+
+
+    //Page 404
+
     { path: '/:pathMatch(.*)*', name: 'Page404View', component: Page404View },
+
+
+    //Gestion Artistes
+
     { path: '/Creation', name: 'CreationView', component: CreationView },
     { path: '/Modification/:id', name: 'ModificationView', component: ModificationView },
     { path: '/Delete/:id', name: 'DeleteView', component: DeleteView },
-    // ici les autres routes
   ]
 })
 

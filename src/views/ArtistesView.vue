@@ -153,7 +153,18 @@ export default {
                     // On utilse map pour récupérer l'intégralité des données renvoyées
                     // on identifie clairement le id du document
                     // les rest parameters permet de préciser la récupération de toute la partie data
-                    this.listeArtistesSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()})); 
+                    this.listeArtistesSynchro = snapshot.docs.map(doc => ({id:doc.id, ...doc.data()}));
+                    this.listeArtistesSynchro.forEach(function(Artistes){
+                      const storage = getStorage();
+                      const spaceRef = ref(storage, 'Artistes/'+Artistes.photo);
+                      getDownloadURL(spaceRef)
+                      .then((url) => {
+                        Artistes.photo = url;
+                      })
+                      .catch((error) =>{
+                        console.log('erreur downloadUrl', EvalError)
+                      })
+                    }) 
                 })
             },
 
