@@ -16,21 +16,18 @@
           </div>
         </form>
 
-        <div class="">
+        <div class="flex justify-end">
             <table class="">
                 <thead>
                     <tr>                      
                         <th scope="col">                        
                           <span class="">
-                            <div class="ml-80" >
-                                <div class="">
-                                  <span class="" >Filtrage</span>
+                            <div class="flex gap-2 mr-20 bg-marron dark:bg-Dark-marron rounded-lg p-2" >
+                                <div class="mt-1">
+                                  <span class="text-xl" >Filtre</span>
                                 </div>
-                                <input type="text" class="" v-model='filter'/>
-                                <button class="" type="button" title="Filtrage">
-                                  <Search />
-                                </button>
-                              </div>
+                                <input type="text" class="bg-jaune dark:bg-marron border-none rounded-lg" v-model='filter'/>
+                            </div>
                           </span>
                         </th>
                     </tr>
@@ -39,7 +36,7 @@
         </div>
     </div>
     <div class="grid grid-flow-row-dense grid-cols-[repeat(auto-fit,minmax(350px,2fr))] gap-8 py-10">
-        <div v-for="artiste in listeArtistesSynchro" :key="artiste.id">
+        <div v-for="artiste in filterByName" :key="artiste.id">
             <Card
                 :Nom="artiste.Nom"
                 :Role="artiste.Role"

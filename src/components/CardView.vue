@@ -13,12 +13,12 @@
     </div>
     <div class="flex justify-center gap-10 mt-1">
         <RouterLink class="" :to="{ name:'ModificationView', params: {id}}">
-            <button class="bg-jaune rounded-lg mb-2 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" title="Modification">
+            <button class="bg-jaune dark:bg-marron rounded-lg mb-2 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" title="Modification">
               <Modifier />
             </button>
         </RouterLink>
         <RouterLink class="" :to="{ name:'DeleteView', params: {id}}">
-            <button class="bg-jaune rounded-lg mb-2 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" title="Suppression">
+            <button class="bg-jaune dark:bg-marron rounded-lg mb-2 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" title="Suppression">
               <Delete />
             </button>
         </RouterLink>
