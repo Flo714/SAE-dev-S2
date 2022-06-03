@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="flex gap-6">   
-                    <button type="submit" class="">
+                    <button type="submit" @click.prevent="deleteArtistes(Artistes)" class="">
                         Supprimer
                     </button>
                     <button class="" >

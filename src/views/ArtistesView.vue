@@ -46,13 +46,13 @@
                               <input type="text" class="" v-model="Artistes.Nom" required />
                               <span title="Modifier un Artiste">
                                 <RouterLink :to="{ name:'ModificationView', params: {id: Artistes.id}}">
-                                    <button class="" type="button" @click.prevent="updateArtistes(Artistes)" title="Modification">
+                                    <button class="" type="button" title="Modification">
                                       <Modifier />
                                     </button>
                                 </RouterLink>
                               </span>
                               <RouterLink :to="{ name:'DeleteView', params: { id: Artistes.id}}">
-                                <button class="" type="button" @click.prevent="deleteArtistes(Artistes)" title="Suppression">
+                                <button class="" type="button" title="Suppression">
                                   <Delete />
                                 </button>
                               </RouterLink>
@@ -162,7 +162,7 @@ export default {
                         Artistes.photo = url;
                       })
                       .catch((error) =>{
-                        console.log('erreur downloadUrl', EvalError)
+                        console.log('erreur downloadUrl', error)
                       })
                     }) 
                 })

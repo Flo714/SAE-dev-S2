@@ -38,7 +38,7 @@
                                 class="bg-jaune rounded-xl border-none" type="text" placeholder="Les disponibilité" required>
                         </label>
                         <div class="flex justify-between gap-10 my-4">
-                            <button type="submit">
+                            <button type="submit" @click.prevent="updateArtistes(Artistes)">
                                 <Bouton2 class="w-32" Nom="Sauvegarder"/>
                             </button>
 
@@ -62,7 +62,9 @@ import {
     collection, 
     doc, 
     getDoc,
+    addDoc,
     updateDoc, 
+    deleteDoc,
     onSnapshot, 
     query,
     orderBy
@@ -96,6 +98,7 @@ export default {
     components: { Bouton2 },
 
     mounted(){
+console.log("id Artistes", this.$route.params.id);
         this.getArtistes(this.$route.params.id);
     },
     methods : {
@@ -107,7 +110,7 @@ export default {
                 this.Artistes = this.refArtistes.data();
                 this.photoActuelle = this.Artistes.photo;
             }else{
-                // this.console.log("Artistes inexistant");
+                this.console.log("Artistes inexistant");
             }
             const storage = getStorage();
             const spaceRef = ref(storage, 'Artistes/'+this.Artistes.photo);
@@ -139,7 +142,7 @@ export default {
                 deleteObject(docRef);
                 docRef = ref(storage, 'Artistes/'+this.Artistes.photo);
                 await uploadString(docRef, this.imageData, 'data_url').then((snapshot) => {
-                    // console.log('Uploaded a base64 string', this.Artistes.photo);                
+                    console.log('Uploaded a base64 string', this.Artistes.photo);                
                 });                   
             }
             const firestore = getFirestore();

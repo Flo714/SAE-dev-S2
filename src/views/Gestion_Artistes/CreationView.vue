@@ -113,7 +113,6 @@ export default {
             })
         },
         previewImage: function(event) {
-            //debugger
             this.file = this.$refs.file.files[0];
             this.Artistes.photo = this.file.name;
             var input = event.target;
