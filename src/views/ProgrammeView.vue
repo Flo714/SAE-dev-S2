@@ -1,7 +1,7 @@
 <template>
     <h1 class="py-4 md:text-4xl md:pt-12">La Programmation</h1>
     <div>
-      <h2 class="my-4 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Vendredi 7 Août 2022</span></h2>
+      <h2 class="my-8 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Vendredi 7 Août 2022</span></h2>
        <div  class="flex justify-between">
         <div class="">
               <table class="">
@@ -9,13 +9,13 @@
                       <tr v-for='Programme in orderByName' :key='Programme.id'>
                           <td class="">
                             <form>
-                              <div class="" >
+                              <div class="flex gap-4" >
                                 <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="Programme.Nom"  required />
                                 <div class="mt-2 flex gap-4">
-                                  <button class="" type="button" @click="updateProgramme(Programme)"  title="Modification">
+                                  <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="updateProgramme(Programme)"  title="Modification">
                                     <Modifier />
                                   </button>
-                                  <button class="" type="button" @click="deleteProgramme(Programme)" title="Suppression">
+                                  <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="deleteProgramme(Programme)" title="Suppression">
                                     <Delete />
                                   </button>
                                 </div>
@@ -30,16 +30,18 @@
             <div class="flex justify-end mr-40">
               <div class="bg-marron p-2 rounded-md">
                 <h3 class="mb-4">Mettre une nouvelle Heure</h3>
-                <input type="text" class="bg-jaune border-none rounded-xl" v-model="Nom" required />
-                <button class="" type="button" @click='createProgramme()' title="Création">
-                  <Modifier />
-                </button>
+                <div class="flex gap-4">
+                  <input type="text" class="bg-jaune border-none rounded-xl" v-model="Nom" required />
+                  <button class="bg-jaune rounded-lg my-1 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click='createProgramme()' title="Création">
+                    <Modifier />
+                  </button>
+                </div>
               </div>
             </div>
           </form>
         </div>
     </div>
-    <div class="">
+    <div class="my-4">
         <h2 class="my-4 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Samedi 8 Août 2022</span></h2>
         <div class="flex justify-between">
           <div class="">
@@ -50,7 +52,7 @@
                             <form>
                               <div class="flex gap-4" >
                                 <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeS.NomS"  required />
-                                <div class="mt-1 flex gap-4">
+                                <div class="mt-2 flex gap-4">
                                   <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="updateProgrammeS(ProgrammeS)"  title="Modification">
                                     <Modifier />
                                   </button>
@@ -68,17 +70,19 @@
           <form>
             <div class="flex justify-end mr-40">
               <div class="bg-marron p-2 rounded-md">
-                <h3>Mettre une nouvelle Heure</h3>
-                <input type="text" class="bg-jaune border-none rounded-xl" v-model="NomS" required />
-                <button class="" type="button" @click='createProgrammeS()' title="Création">
-                  <Modifier />
-                </button>
+                <h3 class="mb-4">Mettre une nouvelle Heure</h3>
+                <div class="flex gap-4">
+                  <input type="text" class="bg-jaune border-none rounded-xl" v-model="NomS" required />
+                  <button class="bg-jaune rounded-lg my-1 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click='createProgrammeS()' title="Création">
+                    <Modifier />
+                  </button>
+                </div>
               </div>
             </div>
           </form>
         </div>
     </div>
-    <div class="">
+    <div class="pb-10">
         <h2 class="my-4 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Dimanche 9 Août 2022</span></h2>
         <div class="flex justify-between">
             <table class="">
@@ -87,7 +91,7 @@
                         <td>
                           <div class="flex gap-4" >
                             <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeD.NomD"  required />
-                            <div class="mt-1 flex gap-4">
+                            <div class="mt-2 flex gap-4">
                               <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="updateProgrammeD(ProgrammeD)"  title="Modification">
                                 <Modifier />
                               </button>
@@ -103,11 +107,13 @@
           <form>
             <div class="flex justify-end mr-40">
               <div class="bg-marron p-2 rounded-md">
-                <h3>Mettre une nouvelle Heure</h3>
-                <input type="text" class="bg-jaune border-none rounded-xl" v-model="NomD" required />
-                <button class="" type="button" @click='createProgrammeD()' title="Création">
-                  <Modifier />
-                </button>
+                <h3 class="mb-4">Mettre une nouvelle Heure</h3>
+                <div class="flex gap-4">
+                  <input type="text" class="bg-jaune border-none rounded-xl" v-model="NomD" required />
+                  <button class="bg-jaune rounded-lg my-1 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click='createProgrammeD()' title="Création">
+                    <Modifier />
+                  </button>
+                </div>
               </div>
             </div>
           </form>
