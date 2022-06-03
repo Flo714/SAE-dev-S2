@@ -8,7 +8,7 @@
               <h2 class="">Créer un artiste</h2>
             </div>
             <RouterLink to="/Creation">
-              <div class=" ml-56 my-10">
+              <div class="flex justify-center mr-40 my-8">
                 <Bouton @click='createArtistes()' title="Création"
                 Nom="Créer"/>
               </div>

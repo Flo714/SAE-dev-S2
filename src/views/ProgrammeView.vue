@@ -83,9 +83,9 @@
                 <tbody>
                     <tr v-for='ProgrammeD in orderByName3' :key='ProgrammeD.id'>
                         <td>
-                          <form>
-                            <div class="" >
-                              <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeD.NomD"  required />
+                          <div class="flex gap-4" >
+                            <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeD.NomD"  required />
+                            <div class="mt-1 flex gap-2">
                               <button class="" type="button" @click="updateProgrammeD(ProgrammeD)"  title="Modification">
                                 <Modifier />
                               </button>
@@ -93,7 +93,7 @@
                                 <Delete />
                               </button>
                             </div>
-                          </form>
+                          </div>
                         </td>
                     </tr>
                 </tbody>
