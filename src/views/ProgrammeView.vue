@@ -4,7 +4,7 @@
       <h2 class="my-8 before:bg-jaune before:dark:bg-Dark-marron before:absolute before:w-8 before:h-3 before:rounded md:before:w-10 md:before:h-4"><span class="relative ml-2 md:text-2xl">Vendredi 7 Août 2022</span></h2>
        <div  class="flex justify-between">
         <div class="">
-              <table class="">
+              <table class="ml-10">>
                   <tbody>
                       <tr v-for='Programme in orderByName' :key='Programme.id'>
                           <td class="">
