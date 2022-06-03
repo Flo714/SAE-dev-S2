@@ -10,12 +10,12 @@
                           <td class="">
                             <form>
                               <div class="flex gap-4" >
-                                <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="Programme.Nom"  required />
+                                <input type="text" class="bg-fond border-marron dark:border-Dark-marron rounded-lg my-2 p-1 w-[30rem]" v-model="Programme.Nom"  required />
                                 <div class="mt-2 flex gap-4">
-                                  <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="updateProgramme(Programme)"  title="Modification">
+                                  <button class="bg-jaune dark:bg-Dark-marron rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="updateProgramme(Programme)"  title="Modification">
                                     <Modifier />
                                   </button>
-                                  <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="deleteProgramme(Programme)" title="Suppression">
+                                  <button class="bg-jaune dark:bg-Dark-marron rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="deleteProgramme(Programme)" title="Suppression">
                                     <Delete />
                                   </button>
                                 </div>
@@ -28,11 +28,11 @@
           </div>
         <form>
             <div class="flex justify-end mr-40">
-              <div class="bg-marron p-2 rounded-md">
+              <div class="bg-marron dark:bg-Dark-marron p-2 rounded-md">
                 <h3 class="mb-4">Mettre une nouvelle Heure</h3>
                 <div class="flex gap-4">
-                  <input type="text" class="bg-jaune border-none rounded-xl" v-model="Nom" required />
-                  <button class="bg-jaune rounded-lg my-1 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click='createProgramme()' title="Création">
+                  <input type="text" class="bg-jaune dark:bg-marron border-none rounded-xl" v-model="Nom" required />
+                  <button class="bg-jaune dark:bg-marron rounded-lg my-1 p-1 hover:bg-hover  dark:hover:text-Dark-marron duration-300" type="button" @click='createProgramme()' title="Création">
                     <Modifier />
                   </button>
                 </div>
@@ -51,12 +51,12 @@
                           <td>
                             <form>
                               <div class="flex gap-4" >
-                                <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeS.NomS"  required />
+                                <input type="text" class="bg-fond border-marron dark:border-Dark-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeS.NomS"  required />
                                 <div class="mt-2 flex gap-4">
-                                  <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="updateProgrammeS(ProgrammeS)"  title="Modification">
+                                  <button class="bg-jaune dark:bg-Dark-marron rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="updateProgrammeS(ProgrammeS)"  title="Modification">
                                     <Modifier />
                                   </button>
-                                  <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="deleteProgrammeS(ProgrammeS)" title="Suppression">
+                                  <button class="bg-jaune dark:bg-Dark-marron rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="deleteProgrammeS(ProgrammeS)" title="Suppression">
                                     <Delete />
                                   </button>
                                 </div>
@@ -69,11 +69,11 @@
           </div>
           <form>
             <div class="flex justify-end mr-40">
-              <div class="bg-marron p-2 rounded-md">
+              <div class="bg-marron dark:bg-Dark-marron p-2 rounded-md">
                 <h3 class="mb-4">Mettre une nouvelle Heure</h3>
                 <div class="flex gap-4">
-                  <input type="text" class="bg-jaune border-none rounded-xl" v-model="NomS" required />
-                  <button class="bg-jaune rounded-lg my-1 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click='createProgrammeS()' title="Création">
+                  <input type="text" class="bg-jaune dark:bg-marron border-none rounded-xl" v-model="NomS" required />
+                  <button class="bg-jaune dark:bg-marron rounded-lg my-1 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click='createProgrammeS()' title="Création">
                     <Modifier />
                   </button>
                 </div>
@@ -90,12 +90,12 @@
                     <tr v-for='ProgrammeD in orderByName3' :key='ProgrammeD.id'>
                         <td>
                           <div class="flex gap-4" >
-                            <input type="text" class="bg-fond border-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeD.NomD"  required />
+                            <input type="text" class="bg-fond border-marron dark:border-Dark-marron rounded-lg my-2 p-1 w-[30rem]" v-model="ProgrammeD.NomD"  required />
                             <div class="mt-2 flex gap-4">
-                              <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="updateProgrammeD(ProgrammeD)"  title="Modification">
+                              <button class="bg-jaune dark:bg-Dark-marron rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="updateProgrammeD(ProgrammeD)"  title="Modification">
                                 <Modifier />
                               </button>
-                              <button class="bg-jaune rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="deleteProgrammeD(ProgrammeD)" title="Suppression">
+                              <button class="bg-jaune dark:bg-Dark-marron rounded-lg mb-2 px-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click="deleteProgrammeD(ProgrammeD)" title="Suppression">
                                 <Delete />
                               </button>
                             </div>
@@ -106,11 +106,11 @@
             </table>
           <form>
             <div class="flex justify-end mr-40">
-              <div class="bg-marron p-2 rounded-md">
+              <div class="bg-marron dark:bg-Dark-marron p-2 rounded-md">
                 <h3 class="mb-4">Mettre une nouvelle Heure</h3>
                 <div class="flex gap-4">
-                  <input type="text" class="bg-jaune border-none rounded-xl" v-model="NomD" required />
-                  <button class="bg-jaune rounded-lg my-1 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click='createProgrammeD()' title="Création">
+                  <input type="text" class="bg-jaune  dark:bg-marron border-none rounded-xl" v-model="NomD" required />
+                  <button class="bg-jaune dark:bg-marron rounded-lg my-1 p-1 hover:bg-hover dark:hover:text-Dark-marron duration-300" type="button" @click='createProgrammeD()' title="Création">
                     <Modifier />
                   </button>
                 </div>
